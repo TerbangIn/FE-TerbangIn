@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Banner from './Banner';
 import Destinasi from './Destinasi';
 
+
 function Beranda() {
   return (
     <>

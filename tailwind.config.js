@@ -14,6 +14,8 @@ module.exports = {
         primary3: "#FFE9CA",
         button1: "#7126B5",
         primary5: "#FF0000",
+        purple: "#7126B580",
+        purple2: "#E2D4F0",
       },
       fontWeight: {
         primary1: "20px"

@@ -25,8 +25,8 @@ function Destinasi() {
             <div className="flex items-center">
                 <Image src={button_all} alt="button_all" onClick={buttonHandler} className="w-32" />
                 <Image src={button_asia} alt="button_asia" className="pl-4 w-32" />
-                <Image src={button_amerika} alt="button_amerika" className="pl-4 w-32" />
-                <Image src={button_australia} alt="button_australia" className="pl-4 w-32" />
+                <Image src={button_amerika} alt="button_amerika" className="pl-4 w-40" />
+                <Image src={button_australia} alt="button_australia" className="pl-4 w-40" />
                 <Image src={button_eropa} alt="button_eropa" className="pl-4 w-32" />
                 <Image src={button_afrika} alt="button_afrika" className="pl-4 w-32" />
 
@@ -35,27 +35,10 @@ function Destinasi() {
                 <div className="flex flex-row gap-4">
                     <div className="flex flex-col border-2 rounded-md w-44">
                         <div>
-                            <p className="w-full"><Image src={jkt_bnk} alt="jakarta_bangkok1" /></p>
+                            <Image src={jkt_bnk} alt="jakarta_bangkok1" width="500px"/>
                         </div>
                         <div>
-                            <p>Jakarta -> Bangkok</p>
-                        </div>
-                        <div>
-                            <p className="text-button1">AirAsia</p>
-                        </div>
-                        <div>
-                            <p>20 - 30 Maret 2023</p>
-                        </div>
-                        <div>
-                            <p>Mulai dari <span className="text-primary5">IDR 950.000</span></p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col border-2 rounded-lg w-44">
-                        <div>
-                            <Image src={jkt_bnk} alt="jakarta_bangkok2" />
-                        </div>
-                        <div>
-                            <p>Jakarta -> Bangkok</p>
+                            <p className="font-bold">Jakarta -> Bangkok</p>
                         </div>
                         <div>
                             <p className="text-button1">AirAsia</p>
@@ -69,10 +52,27 @@ function Destinasi() {
                     </div>
                     <div className="flex flex-col border-2 rounded-lg w-44">
                         <div>
-                            <Image src={jkt_sdn} alt="jakarta_sydney" />
+                            <Image src={jkt_bnk} alt="jakarta_bangkok2" width="500px"/>
                         </div>
                         <div>
-                            <p>Jakarta -> Sydney</p>
+                            <p className="font-bold">Jakarta -> Bangkok</p>
+                        </div>
+                        <div>
+                            <p className="text-button1">AirAsia</p>
+                        </div>
+                        <div>
+                            <p>20 - 30 Maret 2023</p>
+                        </div>
+                        <div>
+                            <p>Mulai dari <span className="text-primary5">IDR 950.000</span></p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col border-2 rounded-lg w-44">
+                        <div>
+                            <Image src={jkt_sdn} alt="jakarta_sydney" width="500px"/>
+                        </div>
+                        <div>
+                            <p className="font-bold pt-1">Jakarta -> Sydney</p>
                         </div>
                         <div>
                             <p className="text-button1">AirAsia</p>
@@ -86,10 +86,10 @@ function Destinasi() {
                     </div>
                     <div className="flex flex-col border-2 rounded-lg w-44">
                         <div>
-                            <Image src={jkt_sdn} alt="jakarta_sydney" />
+                            <Image src={jkt_sdn} alt="jakarta_sydney" width="500px"/>
                         </div>
                         <div>
-                            <p>Jakarta -> Sydney</p>
+                            <p className="font-bold pt-1">Jakarta -> Sydney</p>
                         </div>
                         <div>
                             <p className="text-button1">AirAsia</p>
@@ -103,10 +103,10 @@ function Destinasi() {
                     </div>
                     <div className="flex flex-col border-2 rounded-lg w-44">
                         <div>
-                            <Image src={jkt_bnk} alt="jakarta_bangkok3" />
+                            <Image src={jkt_bnk} alt="jakarta_bangkok3" width="500px"/>
                         </div>
                         <div>
-                            <p>Jakarta -> Bangkok</p>
+                            <p className="font-bold">Jakarta -> Bangkok</p>
                         </div>
                         <div>
                             <p className="text-button1">AirAsia</p>
