@@ -4,6 +4,10 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    screens: {
+      'xs': {'max': '639px'},
+      'sm': {'min': '640px'}
+    },
     extend: {
       fontFamily: {
         sans1: "Poppins",
@@ -16,6 +20,7 @@ module.exports = {
         primary5: "#FF0000",
         purple: "#7126B580",
         purple2: "#E2D4F0",
+        purple3: "#4B1979",
       },
       fontWeight: {
         primary1: "20px"
