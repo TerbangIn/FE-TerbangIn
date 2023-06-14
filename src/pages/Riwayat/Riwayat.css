@@ -1,25 +1,7 @@
-.container {
-  /* padding-left: 10px; */
-  background-color: #A06ECE;
-  padding-top: 100px;
-  font-weight: 700;
-  font-size: 20px;
-}
+
 
 .button-search{
     color: #A06ECE !important;
-}
-
-.header{
-  align-items: center;
-}
-
-.button-filter-simpan{
-    color: #A06ECE;
-}
-
-.title-color{
-  color: #A06ECE;
 }
 
 .arrow{
@@ -28,9 +10,4 @@
 
 .p-card-body{
   padding: 0.5rem !important;
-}
-
-.price-tag{
-  font-weight: 700;
-  font-size: 18px;
 }

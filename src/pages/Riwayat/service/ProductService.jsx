@@ -347,7 +347,7 @@ export const ProductService = {
                 airport_departure: 'Sultan Iskandar Muda - 1A',
                 arrive: 'Surabaya',
                 airport_arrive: 'Juand - 2A',
-                date_depart: '24 Agustus 2023',
+                date_depart: '24 September 2023',
                 date_arrive: '24 Agustus 2023',
                 time_depart: '12.30',
                 time_arrive: '16.04',
