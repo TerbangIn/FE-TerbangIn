@@ -18,7 +18,7 @@ export default function LoginPage(){
                     labelText="aaaaaaaaaaaa"
                     paragraph="Belum punya akun? "
                     linkName="Daftar di sini"
-                    linkUrl="/signup"
+                    linkUrl="/api/v1/user/register"
                 />
                 
             </div>

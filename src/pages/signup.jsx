@@ -21,7 +21,7 @@ export default function SignupPage(){
             <Header
               paragraph="Sudah punya akun? "
               linkName="Masuk di sini"
-              linkUrl="/"
+              linkUrl="/api/v1/user/login"
             />
                 
             </div>
