@@ -31,13 +31,13 @@ function ModalSeatClass() {
             <div className="card flex justify-content-center">
                 <Dialog visible={visible} modal={false} style={{ width: '400px' }} onHide={() => setVisible(false)}>
                     <div className="flex flex-col">
-                        <div className={`flex flex-row ${selectedSeatClass === 'Economy' ? 'selected  text-white bg-purple3' : ''}`} onClick={() => handleSeatClassClick('Economy')} style={{ cursor: "pointer" }}>
+                        <div className={`flex flex-row ${selectedSeatClass === 'Economy' ? 'selected text-white bg-purple3' : ''}`} onClick={() => handleSeatClassClick('Economy')} style={{ cursor: "pointer" }}>
                             <div className="pr-3">
                                 <p className="font-bold mt-2 ml-4">Economy</p>
                                 <p className=" ml-4 pt-1 mb-1">IDR 4.950.000</p>
                             </div>
                             {selectedSeatClass === 'Economy' && (
-                                <div className="ml-48 pt-6 bg-purple3">
+                                <div className="ml-48 pt-6">
                                     <Image src={checklist} alt="checklist" />
                                 </div>
                             )}
@@ -49,7 +49,7 @@ function ModalSeatClass() {
                                 <p className="ml-4 pt-1 mb-1">IDR 7.550.000</p>
                             </div>
                             {selectedSeatClass === 'Premium Economy' && (
-                                <div className="ml-40 pt-6 bg-purple3">
+                                <div className="ml-40 pt-6">
                                     <Image src={checklist} alt="checklist" />
                                 </div>
                             )}
@@ -73,7 +73,7 @@ function ModalSeatClass() {
                                 <p className="ml-4 pt-1 mb-1">IDR 87.620.000</p>
                             </div>
                             {selectedSeatClass === 'First Class' && (
-                                <div className="ml-48 pt-6  bg-purple3">
+                                <div className="ml-48 pt-6">
                                     <Image src={checklist} alt="checklist" />
                                 </div>
                             )}
