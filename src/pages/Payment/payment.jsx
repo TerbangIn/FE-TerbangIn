@@ -1,6 +1,7 @@
 import React,{ useState } from "react";
 import { InputText } from 'primereact/inputtext';
 import { InputSwitch } from "primereact/inputswitch";
+import SeatCustomer from "./seat";
 
 
 
@@ -180,7 +181,7 @@ function Payment (){
                     </div>
                 </div>
                 <div>
-                    
+                    <SeatCustomer/>
                 </div>
             </div>
         </div>

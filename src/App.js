@@ -5,9 +5,8 @@ import SeatCustomer from './pages/Payment/seat'
 function App() {
   return (
     <div className="App">
-      {/* <Payment/> */}
+      <Payment/>
       {/* <SeatCustomer/> */}
-      <SeatCustomer/>
     </div>
   );
 }
