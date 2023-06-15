@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Dialog } from 'primereact/dialog';
 import { Image } from "primereact/image";
-// import Counter from "../Counter";
 
 import icon_adult from "../../assets/images/icon_adult.svg"
 import icon_child from "../../assets/images/icon_child.svg"
@@ -20,13 +19,13 @@ import button_plus from "../../assets/images/plus.svg"
 
 function ModalPassengers() {
     const [visible, setVisible] = useState(false);
-    const counterAdult = useSelector(state => state.counterAdult);
-    const counterChild = useSelector(state => state.counterChild);
-    const counterBaby = useSelector(state => state.counterBaby);
-    const counterAmount = useSelector(state => state.counterAmount)
-    const showCounterChild = useSelector(state => state.showCounterChild);
-    const showCounterAdult = useSelector(state => state.showCounterAdult);
-    const showCounterBaby = useSelector(state => state.counterBaby);
+    const counterAdult = useSelector(state => state.modalPassengerReducer.counterAdult);
+    const counterChild = useSelector(state => state.modalPassengerReducer.counterChild);
+    const counterBaby = useSelector(state => state.modalPassengerReducer.counterBaby);
+    const counterAmount = useSelector(state => state.modalPassengerReducer.counterAmount)
+    const showCounterChild = useSelector(state => state.modalPassengerReducer.showCounterChild);
+    const showCounterAdult = useSelector(state => state.modalPassengerReducer.showCounterAdult);
+    const showCounterBaby = useSelector(state => state.modalPassengerReducer.counterBaby);
 
 
     const dispatch = useDispatch();
@@ -121,7 +120,7 @@ function ModalPassengers() {
                         <Image src={line} alt="line" className="mb-4" />
                     </div>
                    
-                    <Image src={save} alt="save" onClick={amountPassengersHandler} className="flex justify-end" style={{ cursor: "pointer" }}/>
+                    <Image src={save} alt="save" onClick={amountPassengersHandler} className="flex justify-end cursor-pointer"/>
                 </Dialog>
             </div>
 

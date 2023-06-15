@@ -23,17 +23,17 @@ function Destinasi() {
                 <p className="font-sans1 font-bold text-base">Destinasi Favorit</p>
             </div>
             <div className="flex items-center">
-                <Image src={button_all} alt="button_all" onClick={buttonHandler} className="w-32" style={{ cursor: "pointer" }}/>
-                <Image src={button_asia} alt="button_asia" className="pl-4 w-32" style={{ cursor: "pointer" }}/>
-                <Image src={button_amerika} alt="button_amerika" className="pl-4 w-40" />
-                <Image src={button_australia} alt="button_australia" className="pl-4 w-40" style={{ cursor: "pointer" }}/>
-                <Image src={button_eropa} alt="button_eropa" className="pl-4 w-32" style={{ cursor: "pointer" }}/>
-                <Image src={button_afrika} alt="button_afrika" className="pl-4 w-32" style={{ cursor: "pointer" }}/>
+                <Image src={button_all} alt="button_all" onClick={buttonHandler} className="w-32 cursor-pointer"/>
+                <Image src={button_asia} alt="button_asia" className="pl-4 w-32 cursor-pointer"/>
+                <Image src={button_amerika} alt="button_amerika" className="pl-4 w-40 cursor-pointer" />
+                <Image src={button_australia} alt="button_australia" className="pl-4 w-40 cursor-pointer"/>
+                <Image src={button_eropa} alt="button_eropa" className="pl-4 w-32 cursor-pointer"/>
+                <Image src={button_afrika} alt="button_afrika" className="pl-4 w-32 cursor-pointer"/>
 
             </div>
             <div className="flex flex-row mt-5 ml-8 mb-4">
                 <div className="flex flex-row gap-4">
-                    <div className="flex flex-col border-2 rounded-md w-44" style={{ cursor: "pointer" }}>
+                    <div className="flex flex-col border-2 rounded-md w-44 cursor-pointer">
                         <div>
                             <Image src={jkt_bnk} alt="jakarta_bangkok1" width="500px" />
                         </div>
@@ -50,7 +50,7 @@ function Destinasi() {
                             <p>Mulai dari <span className="text-primary5">IDR 950.000</span></p>
                         </div>
                     </div>
-                    <div className="flex flex-col border-2 rounded-lg w-44" style={{ cursor: "pointer" }}>
+                    <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
                         <div>
                             <Image src={jkt_bnk} alt="jakarta_bangkok2" width="500px" />
                         </div>
@@ -67,28 +67,7 @@ function Destinasi() {
                             <p>Mulai dari <span className="text-primary5">IDR 950.000</span></p>
                         </div>
                     </div>
-                    <div className="flex flex-col border-2 rounded-lg w-44" style={{ cursor: "pointer" }}>
-
-                        <div className="">
-                            <Image src={jkt_sdn} alt="jakarta_sydney" width="500px" />
-                            <div className="ml-20 -mt-28 mb-24">
-                                <Image src={diskon} alt="diskon" />
-                            </div>
-                        </div>
-                        <div>
-                            <p className="font-bold pt-1">Jakarta -> Sydney</p>
-                        </div>
-                        <div>
-                            <p className="text-button1">AirAsia</p>
-                        </div>
-                        <div>
-                            <p>5 - 45 Maret 2023</p>
-                        </div>
-                        <div>
-                            <p>Mulai dari <span className="text-primary5">IDR 3.650.000</span></p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col border-2 rounded-lg w-44" style={{ cursor: "pointer" }}>
+                    <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
                         <div>
                             <Image src={jkt_sdn} alt="jakarta_sydney" width="500px" />
                             <div className="ml-20 -mt-28 mb-24">
@@ -108,7 +87,27 @@ function Destinasi() {
                             <p>Mulai dari <span className="text-primary5">IDR 3.650.000</span></p>
                         </div>
                     </div>
-                    <div className="flex flex-col border-2 rounded-lg w-44" style={{ cursor: "pointer" }}>
+                    <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
+                        <div>
+                            <Image src={jkt_sdn} alt="jakarta_sydney" width="500px" />
+                            <div className="ml-20 -mt-28 mb-24">
+                                <Image src={diskon} alt="diskon" />
+                            </div>
+                        </div>
+                        <div>
+                            <p className="font-bold pt-1">Jakarta -> Sydney</p>
+                        </div>
+                        <div>
+                            <p className="text-button1">AirAsia</p>
+                        </div>
+                        <div>
+                            <p>5 - 45 Maret 2023</p>
+                        </div>
+                        <div>
+                            <p>Mulai dari <span className="text-primary5">IDR 3.650.000</span></p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
                         <div>
                             <Image src={jkt_bnk} alt="jakarta_bangkok3" width="500px" />
                         </div>
@@ -126,7 +125,6 @@ function Destinasi() {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )

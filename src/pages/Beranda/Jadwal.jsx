@@ -22,15 +22,50 @@ import airline_seat from "../../assets/images/airline-seat.svg"
 const JadwalPenerbangan = () => {
     const [date, setDate] = useState(null);
     const [date1, setDate1] = useState(null);
+    const [checked, setChecked] = useState(false);
+    const [from, setFrom] = useState("Jakarta (JKTA)");
+    const [to, setTo] = useState("Melbourne (MLB)");
+
 
     const return1Handler = () => {
-        console.log("aku diklik!!")
+        setFrom(to);
+        setTo(from);
     }
 
     const buttonHandler = () => {
         console.log("Halo aku diklik!!")
     }
-    const [checked, setChecked] = useState(false);
+    
+    const handleFromChange = (value) => {
+        setFrom(value);
+    };
+
+    const handleToChange = (value) => {
+        setTo(value);
+    };
+
+    const handleFromSelect = (value) => {
+        setFrom(value);
+    };
+
+    const handleToSelect = (value) => {
+        setTo(value);
+    };
+
+    const handleFromBlur = (event) => {
+        const value = event.target.value;
+        setFrom(value);
+    };
+
+    const handleToBlur = (event) => {
+        const value = event.target.value;
+        setTo(value);
+    };
+
+    const handleToFocus = () => {
+        setTo(from);
+        setFrom("");
+    };
 
     return (
         <div className="relative flex flex-col border-2 ml-48 mr-52 rounded-lg shadow-lg -mt-10 bg-white">
@@ -43,13 +78,24 @@ const JadwalPenerbangan = () => {
                     <div className="flex items-center">
                         <Image src={icon_pesawat} alt="icon_pesawat" className="mr-2" />
                         <p className="mr-2 text-primary1 text-sm">From</p>
-                        <ModalFlightFrom />
+                        <ModalFlightFrom
+                            value={from}
+                            onChange={handleFromChange}
+                            onSelect={handleFromSelect}
+                            onBlur={handleFromBlur}
+                        />
                     </div>
                     <div className="flex items-center">
-                        <Image src={return1} alt="return1" onClick={return1Handler} className="mr-6" />
+                        <Image src={return1} alt="return1" onClick={return1Handler} className="mr-6" style={{ cursor: 'pointer' }} />
                         <Image src={icon_pesawat} alt="icon_pesawat" className="mr-2 ml-1" />
                         <p className="mr-2 text-primary1 text-sm">To</p>
-                        <ModalFlightTo/>
+                        <ModalFlightTo
+                            value={to}
+                            onChange={handleToChange}
+                            onSelect={handleToSelect}
+                            onBlur={handleToBlur}
+                            onFocus={handleToFocus}
+                        />
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-6">
@@ -81,7 +127,7 @@ const JadwalPenerbangan = () => {
                     <div className="flex items-center pl-12">
                         <Image src={airline_seat} alt="airline_seat" />
                         <p className="mr-2 text-primary1 text-base">To</p>
-                        <ModalPassengers/>
+                        <ModalPassengers />
                         <ModalSeatClass />
                     </div>
                 </div>
