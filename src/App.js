@@ -1,17 +1,12 @@
 import './App.css';
-import Login from './pages/login';
-import Notifikasi from './pages/notifikasi';
-import Akun from './pages/akun';
-import Payment from './pages/payment';
-import SeatCustomer from './pages/SeatCustomer'
+import Payment from './pages/Payment/payment';
+import SeatCustomer from './pages/Payment/seat'
 
 function App() {
   return (
     <div className="App">
-      {/* <Login/> */}
-      {/* <Notifikasi/> */}
-      {/* <Akun/> */}
       {/* <Payment/> */}
+      {/* <SeatCustomer/> */}
       <SeatCustomer/>
     </div>
   );

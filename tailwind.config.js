@@ -6,11 +6,15 @@ module.exports = {
   theme: {
     extend: {
       margin:{
+        '2.5': '10px',
         '4.1': '17px',
         '4.5': '18px',
         '6.5': '26px',
         '8.5': '34px',
         '14,5': '61px',
+        '25': '100px',
+        '27': '110px',
+        '31': '126px',
         '65': '260px',
         '66': '278px',
         '71': '301px',
@@ -31,7 +35,7 @@ module.exports = {
         'white': '#FFFFFF',
         'black1': 'rgba(60, 60, 60, 1)',
         'purple1': 'rgba(75, 25, 121, 1)',
-
+        'green': 'rgba(115, 202, 92, 1)',
       },
       boxShadow:{
         'bm': '0px 0px 10px rgba(0, 0, 0, 0.15)',
