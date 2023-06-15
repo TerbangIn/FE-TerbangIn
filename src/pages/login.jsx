@@ -15,10 +15,10 @@ export default function LoginPage(){
                 <Login/>
                 <Header
                     // heading="Masuk"
-                    labelText="aaaaaaaaaaaa"
+                    // labelText="aaaaaaaaaaaa"
                     paragraph="Belum punya akun? "
                     linkName="Daftar di sini"
-                    linkUrl="/api/v1/user/register"
+                    linkUrl="/signup"
                 />
                 
             </div>

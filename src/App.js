@@ -17,9 +17,9 @@ function App() {
       <div className="w-full h-screen">
         <BrowserRouter>
           <Routes>
-            <Route path="/api/v1/user/login" element={<Login />} />
-            <Route path="/api/v1/user/register" element={<Signup />} />
-            <Route path="/api/v1/user/otp" element={<OTP />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/otp" element={<OTP />} />
           </Routes>
         </BrowserRouter>
       </div>

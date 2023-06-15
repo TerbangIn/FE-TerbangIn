@@ -25,7 +25,7 @@ export default function Input({
             </label>
             {isLogin ? 
             <div className="text-sm text-right w-full">
-            <a href='/api/v1/user/otp' className="font-medium text-purple-600 hover:text-purple-500">
+            <a href='/otp' className="font-medium text-purple-600 hover:text-purple-500">
                 Lupa Kata Sandi
             </a>
            
