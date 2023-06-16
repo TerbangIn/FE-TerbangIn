@@ -1,5 +1,4 @@
 import Header from '../components/header'
-// import Login from '../components/login'
 import ResetPassword from '../components/resetPassword';
 import Logo from './tiketku.png'
 import { Image } from 'primereact/image';

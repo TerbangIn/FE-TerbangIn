@@ -23,9 +23,6 @@ export default function ResetPassword(){
        if(e.target.name === "password-baru"){
         setPasswordBaru(e.target.value);
         // username = e.target.value;
-       }else if(e.target.name === "confirm-password-baru"){
-        setConfirmPasswordBaru(e.target.value);
-        // password = e.target.value;
        }
     // console.log(typeof e.target.name);
 
