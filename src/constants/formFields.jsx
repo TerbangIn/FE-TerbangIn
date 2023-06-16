@@ -55,14 +55,37 @@ const signupFields=[
     },
     {
         labelText:"Password",
+        labelFor:"password",
+        id:"password",
+        name:"password",
+        type:"password",
+        autoComplete:"password",
+        isRequired:true,
+        placeholder:"Buat Password"   
+    }
+]
+
+const resetPasswordFields=[
+    {
+        labelText:"Masukkan Password Baru",
+        labelFor:"password",
+        id:"password",
+        name:"password",
+        type:"password",
+        autoComplete:"password",
+        isRequired:true,
+        placeholder:"Masukkan Password Baru"   
+    },
+    {
+        labelText:"Ulangi Password Baru",
         labelFor:"confirm-password",
         id:"confirm-password",
         name:"confirm-password",
         type:"password",
         autoComplete:"confirm-password",
         isRequired:true,
-        placeholder:"Buat Password"   
+        placeholder:"Ulangi Password Baru"   
     }
 ]
 
-export {loginFields,signupFields}
+export {loginFields,signupFields,resetPasswordFields}

@@ -4,10 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import OTP from "./pages/otp";
+import ResetPasswordPage from "./pages/resetPassword";
+
 //theme
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 //core
 import "primereact/resources/primereact.min.css";
+import ResetPassword from "./components/resetPassword";
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/otp" element={<OTP />} />
+            <Route path="/reset" element={<ResetPasswordPage />} />
           </Routes>
         </BrowserRouter>
       </div>

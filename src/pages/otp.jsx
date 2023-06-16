@@ -6,6 +6,7 @@ import { Menubar } from 'primereact/menubar';
 // import { InputText } from 'primereact/inputtext';
 import './otp.css'
 import Logo from './logo.png'
+// import Navbar from '../components/navbar';
 
 function OTP() {
     const handleSubmit=(e)=>{
@@ -17,14 +18,14 @@ function OTP() {
       const items = [
         {
             // label: 'File',
-            icon: 'pi pi-fw pi-file'
+            icon: 'pi pi-fw pi-file co'
         }]
 // width: 98px;
 // height: 53px;
 // left: 128px;
 // top: 15px;
 
-        const start = <img alt="logo" src={Logo} height="10" className="mr-2 h-53px w-98px"></img>;
+        const start = <img alt="logo" src={Logo} height="5" className="mr-2 h-13px w-28px"></img>;
 
 
     return(
@@ -33,6 +34,7 @@ function OTP() {
         {/* <Button icon='pi pi-fw pi-file' className="" text label=""/> */}
         <div className="card">
             <Menubar model={items} start={start} />
+            {/* <Navbar/> */}
         </div>
             <label className='text-3xl text-left font-extrabold text-gray-900'>Masukkan OTP</label>
             <h2>Ketik 6 digit kode yang dikirimkan ke {}</h2>
