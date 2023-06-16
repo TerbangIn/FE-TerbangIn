@@ -25,7 +25,7 @@ export default function Input({
             </label>
             {isLogin ? 
             <div className="text-sm text-right w-full">
-            <a href='/reset' className="font-medium text-purple-600 hover:text-purple-500">
+            <a href='/reset-password' className="font-medium text-purple-600 hover:text-purple-500">
                 Lupa Kata Sandi
             </a>
            

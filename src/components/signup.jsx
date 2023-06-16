@@ -36,31 +36,32 @@ export default function Signup(){
   };
 
   const handleSubmit=(e)=>{
-    e.preventDefault();
-    // console.log(signupState)
-    // createAccount()
+    window.location.href = "/otp";
+  //   e.preventDefault();
+  //   // console.log(signupState)
+  //   // createAccount()
 
-    // Login action
-    // memasukkan state ke dalam request
-    const request ={
-      first_name: username,
-      email:email,
-      password:password,
-      phone_number:telepon
-  };
-  // memanggil fungsi login dari auth service
-    authService
-    .register(request)
-    .then((resp) => {
-      console.log("resp", resp);
-      const response = resp.data;
-      storageService.setToken(resp.data.token);
-      // dispatch(setUser(resp.data));
-      if(response){
-          alert('Berhasil register dengan username : '+response.data.first_name);
-          // console.log(response)
-      }
-    })
+  //   // Login action
+  //   // memasukkan state ke dalam request
+  //   const request ={
+  //     first_name: username,
+  //     email:email,
+  //     password:password,
+  //     phone_number:telepon
+  // };
+  // // memanggil fungsi login dari auth service
+  //   authService
+  //   .register(request)
+  //   .then((resp) => {
+  //     console.log("resp", resp);
+  //     const response = resp.data;
+  //     storageService.setToken(resp.data.token);
+  //     // dispatch(setUser(resp.data));
+  //     if(response){
+  //         alert('Berhasil register dengan username : '+response.data.first_name);
+  //         // console.log(response)
+  //     }
+  //   })
 
   }
 
@@ -70,7 +71,7 @@ export default function Signup(){
   }
 
     return(
-        <form className="mt-2" onSubmit={handleSubmit}>
+        // <form className="mt-2" onSubmit={handleSubmit}>
         <div className="">
         {
                 fields.map(field=>
@@ -83,7 +84,7 @@ export default function Signup(){
                             id={field.id}
                             name={field.name}
                             type={field.type}
-                            isRequired={field.isRequired}
+                            // isRequired={field.isRequired}
                             placeholder={field.placeholder}
                     />
                 
@@ -94,6 +95,6 @@ export default function Signup(){
 
          
 
-      </form>
+      // </form>
     )
 }

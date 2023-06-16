@@ -67,6 +67,19 @@ const signupFields=[
 
 const resetPasswordFields=[
     {
+        labelText:"Email",
+        labelFor:"email-address",
+        id:"email-address",
+        name:"email",
+        type:"email",
+        autoComplete:"email",
+        isRequired:true,
+        placeholder:"Contoh: johndee@gmail.com"   
+    }
+]
+
+const resetPasswordBaruFields=[
+    {
         labelText:"Masukkan Password Baru",
         labelFor:"password",
         id:"password",
@@ -88,4 +101,4 @@ const resetPasswordFields=[
     }
 ]
 
-export {loginFields,signupFields,resetPasswordFields}
+export {loginFields,signupFields,resetPasswordFields,resetPasswordBaruFields}
