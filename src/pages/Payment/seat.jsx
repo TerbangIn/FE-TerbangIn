@@ -47,7 +47,7 @@ const SeatCustomer = () => {
     <>
         <style>{style}</style>
         <div>
-            <div className="w-98  border-2 border-light-gray rounded mb-8.5" >
+            <div className="w-98  border-2 border-light-gray rounded mb-8.5 mt-6.5" >
                 <h1 className="text-xl1 font-bold mb-4 mt-6.5 ml-4">Pilih Kursi</h1>
                 <div className="bg-green w-97 h-10 rounded-sm ml-4" >
                     <h1 className="text-sm text-white text-center pt-2.5 w-96.5">Economy - 64 Seats Available</h1>
