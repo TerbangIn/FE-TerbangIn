@@ -57,7 +57,6 @@ function OTP() {
 
 
         <FormAction handleSubmit={handleSubmit} text="Simpan"/>
-
         </div>
     )
 }
