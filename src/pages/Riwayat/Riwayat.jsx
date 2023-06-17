@@ -62,8 +62,8 @@ function Index() {
         fetchData();
     }, [dispatch]);
 
-    const getStatus = (data) => {
-        switch (data.status) {
+    const getStatus = (detail) => {
+        switch (detail.status) {
             case 'ISSUED':
                 return (<Tag rounded className="h-8 px-3 text-sm font-base" severity="success" value="Issued"></Tag>);
 
@@ -78,8 +78,8 @@ function Index() {
         }
     };
     
-    const getButtonCheckOut = (data) => {
-        switch (data.status) {
+    const getButtonCheckOut = (detail) => {
+        switch (detail.status) {
             case 'ISSUED':
                 return (<Button label="Cetak Tiket" raised className="w-12"/>)
 
@@ -111,7 +111,38 @@ function Index() {
     }
 
     const listAmountAdult = (filter) => {
-        const sum = orders(filter, 12, Infinity)
+        const sum = orders(filter, 17, Infinity)
+        let totalBill = 0;
+
+        // filter.forEach(item => {
+        //         if(item.age > 12){
+        //         totalBill += item.bill;
+        //     }
+        // });
+
+        // setAdult(totalBill)
+
+
+
+        if(sum != 0){
+
+            return (
+                <>
+                    <div className="text-base font-bold text-900">Rincian Harga</div>
+                    <div className="text-base font-normal flex justify-between text-900">
+                        {sum} Adult
+                        <div className="text-sm font-normal justify-items-end">{totalBill}</div>
+                    </div>
+                </>
+            )
+        }else{
+            return <div className="text-sm font-normal text-900">GAGAL</div>
+
+        }
+    }
+
+    const listAmountChild = (filter) => {
+        const sum = orders(filter, 7, 17)
         let totalBill = 0;
 
         filter.forEach(item => {
@@ -140,7 +171,7 @@ function Index() {
     }
 
     const listAmountBaby = (filter) => {
-        const sum = orders(filter, 0, 12)
+        const sum = orders(filter, 0, 7)
         
         let totalBill = 0;
 
@@ -177,16 +208,22 @@ function Index() {
 
         
     }
-
+    const uniqueMonths = [];
     const mounth = (date) => {
-        
-        return(
-            <>
-                <div className="text-md font-bold text-900 pb-2">Tanggal</div>
-            </>
-        )
+    
+        const tanggal = getDateAndTime(date)
+        const pecahTanggal = tanggal.split(" ");
+        const month = pecahTanggal[1];
+        if (!uniqueMonths.includes(month)) {
+        uniqueMonths.push(month);
+        console.log(month);
+            return(
+                <>
+                    <div className="text-md font-bold text-900 pb-2">{month}</div>
+                </>
+            )
+        }
 
-        
     }
 
     const orders = (filter, minAge, maxAge) => {
@@ -194,7 +231,7 @@ function Index() {
 
         filter.forEach(item => {
             const age = item.age;
-            if (age > minAge && age < maxAge) {
+            if (age > minAge && age <= maxAge) {
             count++;
             }
         });
@@ -202,28 +239,46 @@ function Index() {
         return count;
     }
 
-    function getHourAndMinuteFromTime(time) {
+    const getClass = (Class) => {
+        
+        if(Class.economy_class_price!= null){
+            return "Economy"
+        }else if(Class.business_class_price!= null){
+            return "Bussineess"
+        }else if(Class.first_class_price!= null){
+            return "First"
+        }else if(Class.premium_price!= null){
+            return "Premium"
+        }
+    }
+
+    function getHourAndMinuteFromTime(dateTime) {
+
+        const parts = dateTime.split("T");
+        const time = parts[1];
+
         const timeParts = time.split(":");
         const hour = timeParts[0];
         const minute = timeParts[1];
-        
-        return { hour, minute };
+
+        return (hour + " : " + minute)
       }
       
     function getDateAndTime(dateTime) {
         const parts = dateTime.split("T");
         const date = parts[0];
-        const time = parts[1];
       
-        const { hour, minute } = getHourAndMinuteFromTime(time);
+        const objTanggal = new Date(date);
+        const opsiPemformatan = { day: "numeric", month: "long", year: "numeric" };
+        const tanggalTerformat = objTanggal.toLocaleDateString("id-ID", opsiPemformatan);
       
-        return (date)
+        return (tanggalTerformat)
     }
 
     const cardRiwayat = (data) => {
         return (
             <>
-            {mounth(data.booking_date)}
+            {mounth(data.departure_date)}
             <div className="col-12 pb-4">
                 <Card className="row ps-4 button hover:border-4 border-binar-purple"  
                 // onClick={() => pickDetailHandler(data.id)}
@@ -234,7 +289,7 @@ function Index() {
                         <div className="col-3 align-items-center sm:align-items-center">
                             <div className="text-md font-bold text-900">{data.source.name}</div>
                             <div className="text-sm">{getDateAndTime(data.departure_date)}</div>
-                            <div className="text-xs">belum</div>
+                            <div className="text-xs">{getHourAndMinuteFromTime(data.departure_date)}</div>
                         </div>
                         <div className="col-4 justify-items-start">
                             <img src={arrow} alt="arrow" className="w-10"/>
@@ -243,8 +298,7 @@ function Index() {
                         <div className="col-3 align-items-center sm:align-items-start">
                             <div className="text-md font-bold text-900">{data.destination.name}</div>
                             <div className="text-sm">{getDateAndTime(data.arrival_date)}</div>
-                            <div className="text-xs">belum</div>
-                            
+                            <div className="text-xs">{getHourAndMinuteFromTime(data.arrival_date)}</div>
                         </div>
                     </div>
 
@@ -256,7 +310,7 @@ function Index() {
                         </div>
                         <div className="col-4 align-items-center sm:align-items-center">
                             <div className="text-xs font-semibold text-900">Class :</div>
-                            <div className="text-xs">{data.class}</div>
+                            <div className="text-xs">{getClass(data)}</div>
                         </div>
                         <div className="col-4 justify-end">
                             {/* <div className="text-md ps-4 justify-end font-bold text-binar-purple">IDR {data.orders.reduce((sum, order) => sum + order.bill, 0)}</div> */}
@@ -345,14 +399,6 @@ function Index() {
     return (
         <>
         <div>
-            {/* {data.map((item) => {
-                return(
-                    <><h1 key={item.id}>{item.email}</h1><h1 key={item.id}>{item.password}</h1></>
-                )
-            })} */}
-        {data.map(item => (
-        <div key={item.id}>{item.name}</div>
-      ))}
             <Navbar></Navbar>
             <div className="col-12 body">
                 <Card>
