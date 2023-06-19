@@ -1,44 +1,37 @@
 import React from "react";
-import logo from './images/logo.svg';
-import Search from './images/search.svg' ;
-import list from './images/list.svg';
+import { AiOutlineSearch } from 'react-icons/ai';
+import logo from "./images/logo.svg";
 import notif from './images/notif.svg';
-import user from './images/user.svg';
+import history from './images/list.svg';
+import akun from './images/user.svg';
 
 
-function Navbar (){
-    return(
-        <>
-            <div>
-                <div className="flex flex-row pl-32 pt-4 pb-4 shadow-bm">
-                    <div className="">
-                        <a href="">
-                            <img src={logo}/>
-                        </a>
-                    </div>
-                    <div className="flex flex-row bg-gray w-95 h-12 rounded-xl mr-74">
-                        <input className="pl-6" type="search" name="" id="" placeholder="Cari di sini ..." src={Search} style={{ border: 'none', background: 'none', outline: 'none' }} />
-                        <img src={Search} alt="" className="ml-5 w-6 h-6 mt-2.5 flex justify-end" />
-                    </div>
-                    <div className="flex flex-row space-x-7">
-                        <a href="">
-                            <img src={list} alt="" />
-                        </a>
-                        <a href="">
-                            <img className="" src={notif} alt="" />
-                        </a>
-                        <a href="">
-                            <img src={user} alt="" />
-                        </a>
-                    </div>
-                </div>
-                <div className="pl-65 S ">
-                    <p className="font-bold mt-12 mb-8 text-1xl" >Notifikasi</p>
-                </div>
+const Navbar = () => {
+  return (
+    <nav className="py-3 navbar-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center space-x-10">
+            <img src={logo} alt="Logo" className="h-14" />
+            <div className="relative">
+              <input type="text" placeholder="Cari di sini ..." className="px-4 py-2 md:mr-2 mb-2 md:mb-0 bg-[#EEEEEE] text-black rounded-md focus:outline-none  w-[444px] border-none" />
+              <span className="absolute top-3 right-4 text-gray-500 cursor-pointer">
+                <AiOutlineSearch />
+              </span>
             </div>
-        </>
-    )
-}
-
+          </div>
+          <div className="flex flex-col md:flex-row md:items-center">              
+            <div className="flex items-center mr-[136px ]">
+                <a href=""><img src={history} alt="" /></a>
+                <a className="ml-[30px]" href=""><img src={notif} alt="" /></a>
+                <a className="ml-[30px]" href=""><img src={akun} alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </nav>
+  );
+};
 
 export default Navbar;

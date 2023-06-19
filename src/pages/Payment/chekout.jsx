@@ -2,7 +2,8 @@ import React,{ useState } from "react";
 import { InputText } from 'primereact/inputtext';
 import SeatCustomer from "./seat";
 import image from './images/Image.svg';
-
+import Navbar from "./navbar";
+import Modal from './modal'
 
 function Checkout (){
     
@@ -10,7 +11,9 @@ function Checkout (){
     return(
         <div>
             <header>
-
+                <div>
+                    <Navbar/>
+                </div>
             </header>
             <div className="flex flex-row ml-67">
                 <div>

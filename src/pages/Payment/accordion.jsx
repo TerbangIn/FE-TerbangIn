@@ -3,16 +3,9 @@ import paypal from './images/paypal logo.svg';
 import amex from './images/amex logo.svg';
 import master from './images/mastercard logo.svg';
 import visa from './images/visa logo.svg';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 
 function Accordion(){
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        navigate('payment-success');
-    };
 
     return(
         <>
@@ -28,7 +21,7 @@ function Accordion(){
                         data-te-target="#collapseTwo"
                         aria-expanded="false"
                         aria-controls="collapseTwo">
-                        Virtual Account
+                        Gopay
                         <span
                         class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                         <svg
@@ -75,7 +68,7 @@ function Accordion(){
                         data-te-target="#collapseThree"
                         aria-expanded="false"
                         aria-controls="collapseThree">
-                        Credit Card
+                        Virtual Account
                         <span
                         class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                         <svg
@@ -121,7 +114,7 @@ function Accordion(){
                             data-te-target="#collapseOne"
                             aria-expanded="true"
                             aria-controls="collapseOne">
-                            Gopay
+                            Credit Card
                             <span
                             class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
                             <svg
@@ -171,7 +164,7 @@ function Accordion(){
                                 <input className="border-b-2 w-[132px] border-light-gray  focus:outline-none" placeholder="07/24" />
                             </div>
                         </div>
-                        <button className="w-[500px] h-[62px] rounded-lg text-white mt-14 bg-purple-700" onClick={handleClick}> <Link to="/Success">Bayar</Link></button>
+                        <button className="w-[500px] h-[62px] rounded-lg text-white mt-14 bg-purple-700">Bayar</button>
                     </div>
                     </div>
                 </div>

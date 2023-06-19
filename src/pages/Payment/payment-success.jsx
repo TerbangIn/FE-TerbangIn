@@ -1,10 +1,10 @@
 import React from "react";
-import success from './images/🦆 illustration _Cart shopping list_.svg';
+import success from './images/illustration _Cart shopping list_.svg';
 
 function Success(){
     return(
         <>
-        <div className="ml-[629px   ]">
+        <div className="justify-center items-center">
             <img src={success} alt="" className="mt-[90px]" />
             <div className="">
                 <h1 className="text-purple-600 text-sm mt-[18px]">Selamat</h1>

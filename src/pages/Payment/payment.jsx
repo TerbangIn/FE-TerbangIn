@@ -1,14 +1,17 @@
 import React from "react";
 import Accordion from "./accordion";
 import image from './images/Image.svg';
-import { useNavigate } from 'react-router-dom';
+import Navbar from "./navbar";
 
 
 
 function Payment (){
     return(
         <>
-            <div className="flex flex-row">
+            <div>
+                <Navbar/>
+            </div>
+            <div className="flex flex-row">s
                 <div>
                     <h1 className="text-1xl ml-[308px] font-bold mb-4">Isi Data Pembayaran</h1>
                     <Accordion/>

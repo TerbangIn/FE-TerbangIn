@@ -1,17 +1,37 @@
-import React, { useState }  from "react";
+import React from "react";
 
-
-function Modal (){
-    return(
-        <div className="">
-            <div className="bg-danger rounded-md flex flex-row w-99 h-12.5 ml-65.5 mt-43" >
-                <h1 className="text-lg text-white ml-73 mt-2  ">Anda Harus login terlebih dahulu!</h1>
-                <div className="border-2 w-7.5 h-7.5 ml-66 my-2 rounded-full">
-                    <button className="text-1xl text-white ml-2 ">X</button>
+export default function Modal() {
+  const [showModal, setShowModal] = React.useState(true);
+  return (
+    <>
+        <>
+          <div
+            className=" w-[936px] h-[50px] mx-auto "
+          >
+            <div className="relative mx-auto">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col mt-[174px] bg-[#FF0000] outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between rounded-t ml-[278px] mt-1">
+                  <h3 className="justify-center items-center text-lg text-white font-semibold">
+                    Anda harus login terlebih dahulu!
+                  </h3>
+                  <div className="border-2 border-white rounded-full w-[29px] h-[29px] mr-[22px]">
+                    <button
+                      className="ml-auto  bg-transparent border-0 text-white float-right text-md leading-none font-semibold outline-none focus:outline-none"
+                      onClick={() => setShowModal(false)}
+                    >
+                      <span className="h-6 w-6 text-lg block mr-[2px]">
+                        X
+                      </span>
+                    </button>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    )
+          </div>
+          <div className="opacity-25 fixed inset-0 -z-40 bg-black"></div>
+        </>
+    </>
+  );
 }
-
-export default Modal;
