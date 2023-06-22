@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import axios from "axios"
 import { loginFields } from "../constants/formFields";
 import FormAction from "./formAction";
-// import FormExtra from "./formExtra";
-import { authService, storageService } from "../services";
+// import { authService, storageService } from "../services";
 import Input from "./input";
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -17,13 +16,8 @@ fields.forEach(field => fieldsState[field.id] = '');
 const Login = () => {
     const [email, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    // const [errors, setErrors] = useState([])
-    // const [loading, setLoading] = useState(false)
     const [loginState, setLoginState] = useState(fieldsState);
-    // const fieldsState = {
-    //     username: "",
-    //     password: "",
-    //   }
+
     const handleChange = (e) => {
         setLoginState({ ...loginState, [e.target.id]: e.target.value })
         if (e.target.name === "email") {
@@ -170,7 +164,6 @@ const Login = () => {
                 {
                     fields.map(field =>
                         <Input
-                            // heading="aaaaaa"
                             isLogin={field.isLogin}
                             key={field.id}
                             handleChange={handleChange}
@@ -183,7 +176,6 @@ const Login = () => {
                             isRequired={field.isRequired}
                             placeholder={field.placeholder}
                         />
-
                     )
                 }
                 <ToastContainer
@@ -199,13 +191,7 @@ const Login = () => {
                     theme="light"
                 />
             </div>
-            {/* <label
-            for="email"
-            className="block text-sm font-semibold text-gray-800"
-        >Email</label> */}
-
             <FormAction onSubmit={handleSubmit} text="Masuk" />
-
         </form>
     )
 }

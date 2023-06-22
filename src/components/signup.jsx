@@ -14,7 +14,7 @@ let fieldsState = {};
 
 fields.forEach(field => fieldsState[field.id] = '');
 
-export default function Signup() {
+function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [telepon, setTelepon] = useState("");
@@ -39,11 +39,10 @@ export default function Signup() {
     }
   };
 
+  //handle Signup API Integration here
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // console.log(e);
     try {
-      //   setLoading(true)
       const response = await axios.post(
         "https://be-tiketku-production.up.railway.app/api/v1/user/register",
         {
@@ -121,10 +120,7 @@ export default function Signup() {
 
   }
 
-
-
   return (
-    // <form className="mt-2" onSubmit={handleSubmit}>
     <div className="">
       {
         fields.map(field =>
@@ -157,9 +153,7 @@ export default function Signup() {
       />
       <FormAction handleSubmit={handleSubmit} text="Daftar" />
     </div>
-
-
-
-    // </form>
   )
 }
+
+export default Signup

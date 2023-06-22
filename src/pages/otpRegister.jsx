@@ -31,24 +31,6 @@ export default function OTPRegister() {
     console.log(emailHidden)
     console.log(hideEmail(emailHidden))
   }, [emailHidden]);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   try {
-
-  //   }
-  // }
-
-  const items = [
-    {
-      // label: 'File',
-      // icon: 'pi pi-fw pi-file co'
-    }]
-  // width: 98px;
-  // height: 53px;
-  // left: 128px;
-  // top: 15px;
-
-  const start = <Image className="image" src={Logo} alt="Image" width='30%' />
 
   let hideEmail = function (email) {
     try {
@@ -58,6 +40,8 @@ export default function OTPRegister() {
       return email
     }
   };
+
+  const start = <Image className="image" src={Logo} alt="Image" width='30%' />
 
   const resendOTP = async () => {
     await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/otp', {
@@ -74,9 +58,7 @@ export default function OTPRegister() {
         theme: "colored",
       })
       setSeconds(60)
-    }
-
-    )
+    })
   }
 
   const handleSubmit = async () => {
@@ -110,12 +92,10 @@ export default function OTPRegister() {
   }
 
   useEffect(() => {
-    // console.log(hideEmail("falah@gmail.com"));
     const interval = setInterval(() => {
       if (seconds > 0) {
         setSeconds(seconds - 1);
       }
-
       if (seconds === 0) {
         //   if (minutes === 0) {
         clearInterval(interval);
@@ -132,20 +112,15 @@ export default function OTPRegister() {
   return (
     <div className='w-screen'>
       <div className='flex flex-col'>
-        {/* <Button icon='pi pi-fw pi-file' className="" text label=""/> */}
         <div className="">
           <Menubar model={items} start={start} />
-          {/* <Navbar/> */}
         </div>
-
         <div className='mt-6 mb-16 flex flex-col items-center justify-center'>
           <div className='text-left w-2/4 gap-10 flex items-center'>
             <Button type='button' className="" text label="">
               <i className='pi pi-arrow-left font-extrabold text-black' style={{ fontSize: '1.4rem' }}></i>
             </Button>
-
             <label className='text-3xl  font-extrabold text-gray-900'>Masukkan OTP</label>
-
           </div>
           <div className='mt-10'>
             <h2>Ketik 6 digit kode yang dikirimkan ke <b>{hideEmail(emailHidden)}</b></h2>
@@ -166,7 +141,6 @@ export default function OTPRegister() {
               regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
             />
 
-            {/* <h2>Kirim ulang OTP dalam 60 detik</h2> */}
             {seconds > 0 ? (
               <h2>
                 Kirim ulang OTP dalam {seconds < 10 ? `${seconds}` : seconds} detik

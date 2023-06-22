@@ -2,48 +2,38 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { resetPasswordFields } from "../constants/formFields";
 import FormAction from "./formAction";
-import axios from "axios"
-// import FormExtra from "./formExtra";
-import { authService, storageService } from "../services";
-import Cookies from 'universal-cookie';
+// import axios from "axios"
+// import { authService, storageService } from "../services";
+// import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-
 import Input from "./input";
 
-const fields=resetPasswordFields;
+const fields = resetPasswordFields;
 let fieldsState = {};
-fields.forEach(field=>fieldsState[field.id]='');
+fields.forEach(field => fieldsState[field.id] = '');
 
-export default function ResetPassword(){
+function ResetPassword() {
     const [email, setEmail] = useState("");
-//   const [confirmPasswordBaru, setConfirmPasswordBaru] = useState("");
-// let username = "";
-// let password = "";
-    const [resetPassState,setResetPassState]=useState(fieldsState);
+    //   const [confirmPasswordBaru, setConfirmPasswordBaru] = useState("");
+    const [resetPassState, setResetPassState] = useState(fieldsState);
     const navigate = useNavigate()
-    const handleChange=(e)=>{
-        setResetPassState({...resetPassState,[e.target.id]:e.target.value})
-       if(e.target.name === "email"){
-        setEmail(e.target.value);
-        // username = e.target.value;
-       }
-    //    else if(e.target.name === "confirm-password-baru"){
-    //     setConfirmPasswordBaru(e.target.value);
-    //     // password = e.target.value;
-    //    }
-    // console.log(typeof e.target.name);
-
+    const handleChange = (e) => {
+        setResetPassState({ ...resetPassState, [e.target.id]: e.target.value })
+        if (e.target.name === "email") {
+            setEmail(e.target.value);
+        }
     }
 
+    //Handle Reset Password API Integration here
     const handleSubmit = async (e) => {
         // window.location.href = "/reset-password-baru";
         e.preventDefault();
         try {
-          navigate("/otp-reset-password", {
-            state: email
-          })
+            navigate("/otp-reset-password", {
+                state: email
+            })
             // const response = await axios.post(
             //     "https://be-tiketku-production.up.railway.app/api/v1/user/forget-password",
             //     {
@@ -84,19 +74,19 @@ export default function ResetPassword(){
             //       })
             //     }
             //   )
-        
-            } catch (error) {
-              console.log(error);
-            }
-    // console.log({username,password});
-    // const request = {
-    //     email: email,
-    //     // confirmPasswordBaru: confirmPasswordBaru,
-    //   };
-      
-    //   authService
-    //   .login(request)
-    //   .then((resp) => {
+
+        } catch (error) {
+            console.log(error);
+        }
+        // console.log({username,password});
+        // const request = {
+        //     email: email,
+        //     // confirmPasswordBaru: confirmPasswordBaru,
+        //   };
+
+        //   authService
+        //   .login(request)
+        //   .then((resp) => {
         // console.log("resp", resp);
         // const response = resp.data;
         // storageService.setToken(resp.data.token);
@@ -104,52 +94,24 @@ export default function ResetPassword(){
         // console.log(response)
 
         // if(response){
-            // if(response.status === "failed"){
-            //     alert(response.message);
-            // }else{
-            // alert(response.status);
-            // }
-            // console.log(response.status)
+        // if(response.status === "failed"){
+        //     alert(response.message);
+        // }else{
+        // alert(response.status);
         // }
-        
-    //   }).catch((error) => alert(error.response.data.message));
+        // console.log(response.status)
+        // }
+
+        //   }).catch((error) => alert(error.response.data.message));
         // authenticateUser();
     }
 
-//Handle Login API Integration here
-// const authenticateUser = () =>{
-        
-       
-//     const endpoint=`https://api.loginradius.com/identity/v2/auth/login?apikey=${apiKey}`;
-//      fetch(endpoint,
-//          {
-//          method:'POST',
-//          headers: {
-//          'Content-Type': 'application/json'
-//          },
-//          body:JSON.stringify(loginFields)
-//          }).then(response=>response.json())
-//          .then(data=>{
-//             //API Success from LoginRadius Login API
-//          })
-//          .catch(error=>console.log(error))
-     
-// }
-// console.log(username);
-
-// useEffect(() => {
-//     console.log(username);
-
-// }, [username,password])
-
-    return(
+    return (
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="-space-y-px">
-            {
-                fields.map(field=>
+            <div className="-space-y-px">
+                {
+                    fields.map(field =>
                         <Input
-                            // heading="aaaaaa"
-                            // isResetPassword={field.isResetPassword}
                             key={field.id}
                             handleChange={handleChange}
                             value={resetPassState[field.id]}
@@ -160,10 +122,10 @@ export default function ResetPassword(){
                             type={field.type}
                             isRequired={field.isRequired}
                             placeholder={field.placeholder}
-                    />
-                )
-            }
-            <ToastContainer
+                        />
+                    )
+                }
+                <ToastContainer
                     position="bottom-center"
                     autoClose={2000}
                     hideProgressBar
@@ -175,14 +137,11 @@ export default function ResetPassword(){
                     pauseOnHover
                     theme="light"
                 />
-        </div>
-        {/* <label
-            for="email"
-            className="block text-sm font-semibold text-gray-800"
-        >Email</label> */}
-       <FormAction handleSubmit={handleSubmit} text="Kirim" />
-        {/* <FormAction href="/reset-password-baru" handleSubmit={handleSubmit} text="Masuk"/> */}
-
-      </form>
+            </div>
+            <FormAction handleSubmit={handleSubmit} text="Kirim" />
+        </form>
     )
 }
+
+
+export default ResetPassword

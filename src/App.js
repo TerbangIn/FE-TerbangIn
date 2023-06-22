@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
@@ -26,7 +25,10 @@ function App() {
             <Route path="/otp-register" element={<OTPRegister />} />
             <Route path="/otp-reset-password" element={<OTPResetPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/reset-password-baru" element={<ResetPasswordBaru />} />
+            <Route
+              path="/reset-password-baru"
+              element={<ResetPasswordBaru />}
+            />
           </Routes>
         </BrowserRouter>
       </div>

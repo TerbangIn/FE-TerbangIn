@@ -3,52 +3,31 @@ import FormAction from "../components/formAction";
 import { Button } from 'primereact/button';
 import { useState } from 'react';
 import { Menubar } from 'primereact/menubar';
-// import { InputText } from 'primereact/inputtext';
 import './otp.css'
 import Logo from './logo.png'
 import { Image } from 'primereact/image';
 import { useEffect } from 'react';
-import Header from '../components/header';
+// import Header from '../components/header';
 import 'primeicons/primeicons.css';
 import axios from "axios"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import Cookies from 'universal-cookie';
+// import Cookies from 'universal-cookie';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-
-// import Navbar from '../components/navbar';
-
-export default function OTPRegister() {
+function OTPResetPassword() {
   const [otp, setOtp] = useState("");
   const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(60);
   const [emailHidden, setEmailHidden] = useState()
   const location = useLocation()
   const navigate = useNavigate()
+
   useEffect(() => {
     setEmailHidden(location?.state)
     console.log(emailHidden)
     console.log(hideEmail(emailHidden))
-  },[emailHidden]);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   try {
-
-  //   }
-  // }
-
-  const items = [
-    {
-      // label: 'File',
-      // icon: 'pi pi-fw pi-file co'
-    }]
-  // width: 98px;
-  // height: 53px;
-  // left: 128px;
-  // top: 15px;
-
-  const start = <Image className="image" src={Logo} alt="Image" width='30%' />
+  }, [emailHidden]);
 
   let hideEmail = function (email) {
     try {
@@ -59,9 +38,10 @@ export default function OTPRegister() {
     }
   };
 
+  const start = <Image className="image" src={Logo} alt="Image" width='30%' />
   const resendOTP = async () => {
-    await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/otp',{
-      email : emailHidden
+    await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/otp', {
+      email: emailHidden
     }).then(res => {
       toast.success(`${res.status}, redirect in 3s...`, {
         position: "bottom-center",
@@ -74,13 +54,11 @@ export default function OTPRegister() {
         theme: "colored",
       })
       setSeconds(60)
-    }
-      
-    )
+    })
   }
 
   const handleSubmit = async () => {
-    await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/verify',{
+    await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/verify', {
       otp: otp,
       email: emailHidden
     }).then(res => {
@@ -110,7 +88,6 @@ export default function OTPRegister() {
   }
 
   useEffect(() => {
-    // console.log(hideEmail("falah@gmail.com"));
     const interval = setInterval(() => {
       if (seconds > 0) {
         setSeconds(seconds - 1);
@@ -132,24 +109,18 @@ export default function OTPRegister() {
   return (
     <div className='w-screen'>
       <div className='flex flex-col'>
-        {/* <Button icon='pi pi-fw pi-file' className="" text label=""/> */}
         <div className="">
           <Menubar model={items} start={start} />
-          {/* <Navbar/> */}
         </div>
-
         <div className='mt-6 mb-16 flex flex-col items-center justify-center'>
           <div className='text-left w-2/4 gap-10 flex items-center'>
             <Button type='button' className="" text label="">
               <i className='pi pi-arrow-left font-extrabold text-black' style={{ fontSize: '1.4rem' }}></i>
             </Button>
-
             <label className='text-3xl  font-extrabold text-gray-900'>Masukkan OTP</label>
-
           </div>
           <div className='mt-10'>
             <h2>Ketik 6 digit kode yang dikirimkan ke <b>{hideEmail(emailHidden)}</b></h2>
-
             <PinInput
               length={6}
               initialValue=""
@@ -166,7 +137,6 @@ export default function OTPRegister() {
               regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
             />
 
-            {/* <h2>Kirim ulang OTP dalam 60 detik</h2> */}
             {seconds > 0 ? (
               <h2>
                 Kirim ulang OTP dalam {seconds < 10 ? `${seconds}` : seconds} detik
@@ -183,18 +153,20 @@ export default function OTPRegister() {
           </div>
         </div>
         <ToastContainer
-                    position="bottom-center"
-                    autoClose={2000}
-                    hideProgressBar
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"
-                />
+          position="bottom-center"
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
     </div>
   )
 }
+
+export default OTPResetPassword

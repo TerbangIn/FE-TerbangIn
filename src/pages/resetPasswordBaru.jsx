@@ -1,10 +1,9 @@
 import Header from '../components/header'
-// import Login from '../components/login'
 import ResetPasswordBaru from '../components/resetPasswordBaru';
 import Logo from './tiketku.png'
 import { Image } from 'primereact/image';
 
-export default function ResetPasswordPage(){
+function ResetPasswordBaru(){
     return(
         <div className="flex items-center h-screen ">
             <div className='w-3/6'>
@@ -26,3 +25,5 @@ export default function ResetPasswordPage(){
         </div>
     )
 }
+
+export default ResetPasswordBaru
