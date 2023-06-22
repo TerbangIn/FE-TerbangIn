@@ -3,7 +3,7 @@ import ResetPassword from '../components/resetPassword';
 import Gambar from './tiketku.png'
 import { Image } from 'primereact/image';
 
-function ResetPassword() {
+function ResetPasswordPage() {
     return (
         <div className="flex items-center h-screen ">
             <div className='w-3/6'>
@@ -25,4 +25,4 @@ function ResetPassword() {
     )
 }
 
-export default ResetPassword
+export default ResetPasswordPage

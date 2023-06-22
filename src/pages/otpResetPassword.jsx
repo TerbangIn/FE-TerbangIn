@@ -25,8 +25,6 @@ function OTPResetPassword() {
 
   useEffect(() => {
     setEmailHidden(location?.state)
-    console.log(emailHidden)
-    console.log(hideEmail(emailHidden))
   }, [emailHidden]);
 
   let hideEmail = function (email) {
@@ -38,7 +36,11 @@ function OTPResetPassword() {
     }
   };
 
-  const start = <Image className="image" src={Logo} alt="Image" width='30%' />
+  const start =
+    <div className="image ms-9">
+      <Image src={Logo} alt="Image" width='20%' />
+    </div>
+
   const resendOTP = async () => {
     await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/otp', {
       email: emailHidden
@@ -72,7 +74,12 @@ function OTPResetPassword() {
         progress: undefined,
         theme: "colored",
       })
-      navigate("/reset-password-baru")
+      navigate("/reset-password-baru", {
+        state: {
+          email: emailHidden,
+          otp: otp
+        }
+      })
     }).catch(error => {
       toast.error(`${error.response.data.message}, redirect in 3s...`, {
         position: "bottom-center",
@@ -86,6 +93,48 @@ function OTPResetPassword() {
       })
     })
   }
+
+  // const handleSubmit = async (e) => {
+
+  //   // window.location.href = "/reset-password-baru";
+  //   e.preventDefault();
+  //   try {
+  //     navigate("/otp-reset-password", {
+  //       state: email
+  //     })
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+  // const handleSubmit = async () => {
+  //   await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/otp', {
+  //     otp: otp,
+  //     email: emailHidden
+  //   }).then(res => {
+  //     toast.success(`${res.data.message}, redirect in 3s...`, {
+  //       position: "bottom-center",
+  //       autoClose: 2000,
+  //       hideProgressBar: true,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "colored",
+  //     })
+  //     navigate("/reset-password-baru")
+  //   }).catch(error => {
+  //     toast.error(`${error.response.data.message}, redirect in 3s...`, {
+  //       position: "bottom-center",
+  //       autoClose: 2000,
+  //       hideProgressBar: true,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "colored",
+  //     })
+  //   })
+  // }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -110,7 +159,7 @@ function OTPResetPassword() {
     <div className='w-screen'>
       <div className='flex flex-col'>
         <div className="">
-          <Menubar model={items} start={start} />
+          <Menubar start={start} />
         </div>
         <div className='mt-6 mb-16 flex flex-col items-center justify-center'>
           <div className='text-left w-2/4 gap-10 flex items-center'>

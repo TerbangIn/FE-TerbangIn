@@ -16,9 +16,6 @@ import "react-toastify/dist/ReactToastify.css"
 import Cookies from 'universal-cookie';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-
-// import Navbar from '../components/navbar';
-
 export default function OTPRegister() {
   const [otp, setOtp] = useState("");
   const [minutes, setMinutes] = useState(1);
@@ -41,7 +38,10 @@ export default function OTPRegister() {
     }
   };
 
-  const start = <Image className="image" src={Logo} alt="Image" width='30%' />
+  const start =
+    <div className="image ms-9">
+      <Image src={Logo} alt="Image" width='20%' />
+    </div>
 
   const resendOTP = async () => {
     await axios.post('https://be-tiketku-production.up.railway.app/api/v1/user/otp', {
@@ -97,11 +97,7 @@ export default function OTPRegister() {
         setSeconds(seconds - 1);
       }
       if (seconds === 0) {
-        //   if (minutes === 0) {
         clearInterval(interval);
-        //   } else {
-        // setSeconds(60);
-        //   }
       }
     }, 1000);
     return () => {
@@ -113,7 +109,7 @@ export default function OTPRegister() {
     <div className='w-screen'>
       <div className='flex flex-col'>
         <div className="">
-          <Menubar model={items} start={start} />
+          <Menubar start={start} />
         </div>
         <div className='mt-6 mb-16 flex flex-col items-center justify-center'>
           <div className='text-left w-2/4 gap-10 flex items-center'>

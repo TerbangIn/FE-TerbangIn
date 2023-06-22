@@ -38,8 +38,8 @@ const Login = () => {
             const response = await axios.post(
                 "https://be-tiketku-production.up.railway.app/api/v1/user/login",
                 {
-                    email,
-                    password,
+                    email: email,
+                    password: password
                 }
             ).then(
                 function (res) {
