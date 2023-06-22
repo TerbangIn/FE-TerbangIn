@@ -121,10 +121,7 @@ export default function Signup() {
 
   }
 
-  //handle Signup API Integration here
-  // const createAccount = () => {
 
-  //   }
 
   return (
     // <form className="mt-2" onSubmit={handleSubmit}>
