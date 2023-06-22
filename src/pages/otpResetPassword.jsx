@@ -81,7 +81,7 @@ function OTPResetPassword() {
         }
       })
     }).catch(error => {
-      toast.error(`${error.response.data.message}, redirect in 3s...`, {
+      toast.error(`${error.response.data.message}`, {
         position: "bottom-center",
         autoClose: 2000,
         hideProgressBar: true,

@@ -57,7 +57,7 @@ function Signup() {
           const cookies = new Cookies()
           const token = res.data.data.token
           cookies.set("token", token, { path: "/" })
-          toast.success("login success, redirect in 3s...", {
+          toast.success(`${res.data.message}, redirect in 3s...`, {
             position: "bottom-center",
             autoClose: 2000,
             hideProgressBar: true,
@@ -73,9 +73,9 @@ function Signup() {
         }
       ).catch(
 
-        function (err) {
-          console.log(err);
-          toast.error(`${err.response.data.message}, redirect in 3s...`, {
+        function (error) {
+          console.log(error);
+          toast.error(`${error.response.data.message}`, {
             position: "bottom-center",
             autoClose: 2000,
             hideProgressBar: true,
