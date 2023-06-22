@@ -11,7 +11,7 @@ export default function LoginPage(){
             <Image className="image" src={Gambar} alt="Image" width='' />
             </div>
             <div className='flex flex-col w-3/6  px-32'>
-                <label className="text-3xl text-left font-extrabold text-gray-900">Masuk</label>
+                <label className="text-3xl text-left font-extrabold text-gray-900">Reset Password</label>
                 <ResetPassword/>
                 <Header
                     // heading="Masuk"

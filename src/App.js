@@ -3,7 +3,8 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
-import OTP from "./pages/otp";
+import OTPRegister from "./pages/otpRegister";
+import OTPResetPassword from "./pages/otpResetPassword";
 import ResetPasswordBaru from "./pages/resetPasswordBaru";
 import ResetPassword from "./pages/resetPassword";
 
@@ -21,8 +22,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/otp" element={<OTP />} />
+            <Route path="/register" element={<Signup />} />
+            <Route path="/otp-register" element={<OTPRegister />} />
+            <Route path="/otp-reset-password" element={<OTPResetPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/reset-password-baru" element={<ResetPasswordBaru />} />
           </Routes>

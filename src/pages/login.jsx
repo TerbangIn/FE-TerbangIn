@@ -18,9 +18,8 @@ export default function LoginPage(){
                     // labelText="aaaaaaaaaaaa"
                     paragraph="Belum punya akun? "
                     linkName="Daftar di sini"
-                    linkUrl="/signup"
+                    linkUrl="/register"
                 />
-                
             </div>
         </div>
     )
