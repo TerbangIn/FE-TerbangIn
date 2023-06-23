@@ -1,5 +1,6 @@
-import React from "react";
+import {React} from "react";
 import { Image } from "primereact/image";
+import { useSelector} from "react-redux";
 
 
 import button_all from "../../assets/images/button.svg"
@@ -8,22 +9,23 @@ import button_amerika from "../../assets/images/button_amerika.svg"
 import button_australia from "../../assets/images/button_australia.svg"
 import button_eropa from "../../assets/images/button_eropa.svg"
 import button_afrika from "../../assets/images/button_afrika.svg"
-import jkt_bnk from "../../assets/images/jakarta_bangkok.svg"
-import jkt_sdn from "../../assets/images/jkt_sdn.svg"
-import diskon from "../../assets/images/jakarta_sydney.svg"
+
 
 function Destinasi() {
+    const { flightData } = useSelector((state) => state.FlightDestinationReducer)
+    console.log(flightData)
+
     const buttonHandler = () => {
         console.log("Aku melakukan pencarian")
     }
 
     return (
-        <div className="w-screen flex justify-center">
+        <div className="flex justify-center">
             <div className="container">
                 <div className="flex flex-row">
                     <p className="font-sans1 font-bold text-base">Destinasi Favorit</p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center mt-4 sm:mt-4 md:mt-4 lg:mt-4">
                     <Image src={button_all} alt="button_all" onClick={buttonHandler} className="w-32 cursor-pointer" />
                     <Image src={button_asia} alt="button_asia" className="pl-4 w-32 cursor-pointer" />
                     <Image src={button_amerika} alt="button_amerika" className="pl-4 w-40 cursor-pointer" />
@@ -32,106 +34,33 @@ function Destinasi() {
                     <Image src={button_afrika} alt="button_afrika" className="pl-4 w-32 cursor-pointer" />
 
                 </div>
-                <div className="mx-auto w-4/5">
+                <div className="mx-auto w-4/5 ml-auto py-4">
                     <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-                        {/* <div className="flex"> */}
-                        <div className="flex flex-col border-2 rounded-md w-44 cursor-pointer">
-                            <div>
-                                <Image src={jkt_bnk} alt="jakarta_bangkok1" width="500px" />
-                            </div>
-                            <div>
-                                <p className="font-bold">Jakarta -> Bangkok</p>
-                                <i className="pi pi-user text-primary5" ></i>
-                            </div>
-                            <div>
-                                <p className="text-button1">AirAsia</p>
-                            </div>
-                            <div>
-                                <p>20 - 30 Maret 2023</p>
-                            </div>
-                            <div>
-                                <p>Mulai dari <span className="text-primary5">IDR 950.000</span></p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
-                            <div>
-                                <Image src={jkt_bnk} alt="jakarta_bangkok2" width="500px" />
-                            </div>
-                            <div>
-                                <p className="font-bold">Jakarta -> Bangkok</p>
-                            </div>
-                            <div>
-                                <p className="text-button1">AirAsia</p>
-                            </div>
-                            <div>
-                                <p>20 - 30 Maret 2023</p>
-                            </div>
-                            <div>
-                                <p>Mulai dari <span className="text-primary5">IDR 950.000</span></p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
-                            <div>
-                                <Image src={jkt_sdn} alt="jakarta_sydney" width="500px" />
-                                <div className="ml-20 -mt-28 mb-24">
-                                    <Image src={diskon} alt="diskon" />
+                        {flightData.map((flight) => (
+                            <div className="flex flex-col border-2 rounded-md w-44 cursor-pointer lg:mt-3">
+                                <div>
+                                    <Image src={flight.image} alt="img"/>
+                                </div>
+                                <div>
+                                    <p className="font-bold">{flight.source.city} <i className="pi pi-arrow-right" style={{ fontSize: '12px' }}></i> {flight.destination.country}</p>
+                                </div>
+                                <div>
+                                    <p className="text-button1">{flight.airline}</p>
+                                </div>
+                                <div>
+                                    <p>{flight.departure_date.toLocaleString()}</p>
+                                </div>
+                                <div>
+                                    <p>Mulai dari <span className="text-primary5">IDR {flight.economy_class_price}</span></p>
                                 </div>
                             </div>
-                            <div>
-                                <p className="font-bold pt-1">Jakarta -> Sydney</p>
-                            </div>
-                            <div>
-                                <p className="text-button1">AirAsia</p>
-                            </div>
-                            <div>
-                                <p>5 - 45 Maret 2023</p>
-                            </div>
-                            <div>
-                                <p>Mulai dari <span className="text-primary5">IDR 3.650.000</span></p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
-                            <div>
-                                <Image src={jkt_sdn} alt="jakarta_sydney" width="500px" />
-                                <div className="ml-20 -mt-28 mb-24">
-                                    <Image src={diskon} alt="diskon" />
-                                </div>
-                            </div>
-                            <div>
-                                <p className="font-bold pt-1">Jakarta -> Sydney</p>
-                            </div>
-                            <div>
-                                <p className="text-button1">AirAsia</p>
-                            </div>
-                            <div>
-                                <p>5 - 45 Maret 2023</p>
-                            </div>
-                            <div>
-                                <p>Mulai dari <span className="text-primary5">IDR 3.650.000</span></p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col border-2 rounded-lg w-44 cursor-pointer">
-                            <div>
-                                <Image src={jkt_bnk} alt="jakarta_bangkok3" width="500px" />
-                            </div>
-                            <div>
-                                <p className="font-bold">Jakarta -> Bangkok</p>
-                            </div>
-                            <div>
-                                <p className="text-button1">AirAsia</p>
-                            </div>
-                            <div>
-                                <p>20 - 30 Maret 2023</p>
-                            </div>
-                            <div>
-                                <p>Mulai dari <span className="text-primary5">IDR 950.000</span></p>
-                            </div>
-                        </div>
-                        {/* </div> */}
+                        ))}
                     </div>
                 </div>
             </div>
         </div>
+
+
     )
 }
 
