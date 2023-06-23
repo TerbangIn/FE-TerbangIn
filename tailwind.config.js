@@ -8,6 +8,7 @@ module.exports = {
       colors : {
         binar : {
           purple:'#A06ECE',
+          darkPurple:'#4B1979',
           grey:'#8A8A8A'
         }
       }
@@ -15,4 +16,3 @@ module.exports = {
   },
   plugins: [],
 }
-

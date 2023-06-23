@@ -12,9 +12,11 @@
 // };
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Riwayat from './pages/Riwayat/Riwayat';
+// import Booking from './pages/Booking/Booking';
 // import Login from './pages/Auth/Login'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-// import Register from './pages/Auth/Register';
+import Notifikasi from './pages/Notifikasi/Notifikasi';
+import Akun from './pages/Akun/Akun';
 
 
 function App() {
@@ -22,6 +24,14 @@ function App() {
     {
       path: "/",
       element: <Riwayat />,
+    },
+    {
+      path: "/notifikasi",
+      element: <Notifikasi />,
+    },
+    {
+      path: "/akun",
+      element: <Akun />,
     }
   ]);
 
