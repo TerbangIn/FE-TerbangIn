@@ -1,7 +1,34 @@
 import React from "react";
-import Success from "./payment-success";
+import { useEffect, useRef, useState } from "react";
 
-function Timer(){
+const formatTime = (time) =>{
+    let minutes = Math.floor(time / 60)
+    let seconds = Math.floor(time - minutes *60)
+
+    if (minutes <= 10) minutes = '0' + minutes;
+    if (seconds <= 10) seconds = '0' + seconds;
+    return minutes + ':' + seconds
+}
+
+function Timer({seconds}){
+    const [countdown, setCountdown] = useState(seconds)
+    const timerId = useRef()
+
+    useEffect(() =>{
+        timerId.current = setInterval(() =>{
+            setCountdown(prev => prev - 1)
+        }, 1000)
+        return () => clearInterval(timerId.current)
+    }, [])
+
+    useEffect(() => {
+        if (countdown <= 0) {
+            clearInterval(timerId.current)
+            alert("Waktu habis")
+        }
+    }, [countdown])
+
+
     return(
         <>
             <div
@@ -13,7 +40,7 @@ function Timer(){
                     {/*header*/}
                     <div className="flex items-start justify-center rounded-t mt-1">
                     <h1 className="justify-center items-center text-lg text-white font-semibold">
-                        Selesaikan dalam 00:15:00
+                        Selesaikan dalam  {formatTime(countdown)}
                     </h1>
                     </div>
                 </div>

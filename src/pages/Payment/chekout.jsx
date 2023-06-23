@@ -70,7 +70,7 @@ function Checkout() {
                 </div>
                 {/* <Modal/> */}
                 {/* <Submit/> */}
-                <Timer />
+                <Timer seconds={900} />
 
             </header>
             <div className="flex flex-row ml-67 mt-4">
