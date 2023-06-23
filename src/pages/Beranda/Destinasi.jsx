@@ -15,14 +15,21 @@ function Destinasi() {
     const { flightData } = useSelector((state) => state.FlightDestinationReducer)
     console.log(flightData)
 
+    const date = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${day}-${month < 10 ? "0" + month : month}-${year}`;
+    }
     const buttonHandler = () => {
         console.log("Aku melakukan pencarian")
     }
 
     return (
         <div className="flex justify-center">
-            <div className="container">
-                <div className="flex flex-row">
+            <div className="container ">
+                <div className="flex flex-row pt-10">
                     <p className="font-sans1 font-bold text-base">Destinasi Favorit</p>
                 </div>
                 <div className="flex items-center mt-4 sm:mt-4 md:mt-4 lg:mt-4">
@@ -34,7 +41,7 @@ function Destinasi() {
                     <Image src={button_afrika} alt="button_afrika" className="pl-4 w-32 cursor-pointer" />
 
                 </div>
-                <div className="mx-auto w-4/5 ml-auto py-4">
+                <div className="mx-auto w-4/5 ml-auto xl:py-4 lg:py-4 md:py-8 sm:py-4 py-4">
                     <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                         {flightData.map((flight) => (
                             <div className="flex flex-col border-2 rounded-md w-44 cursor-pointer lg:mt-3">
@@ -48,7 +55,7 @@ function Destinasi() {
                                     <p className="text-button1">{flight.airline}</p>
                                 </div>
                                 <div>
-                                    <p>{flight.departure_date.toLocaleString()}</p>
+                                    <p>{date(flight.departure_date)}</p>
                                 </div>
                                 <div>
                                     <p>Mulai dari <span className="text-primary5">IDR {flight.economy_class_price}</span></p>

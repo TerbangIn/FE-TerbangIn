@@ -4,29 +4,36 @@ import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { InputText } from "primereact/inputtext";
 import { Image } from "primereact/image";
+import { useSelector } from "react-redux";
 
 import icon_x from "../../assets/images/icon_x.svg"
 
 function ModalFlightFrom({ value, onSelect }) {
     const [visible, setVisible] = useState(false);
     const [searchValue, setSearchValue] = useState("");
-    const [options] = useState([
-        "Jakarta (JKTA)",
-        "Bandung (BDG)",
-        "Surabaya (SBY)",
-        "Melbourne (MLB)"
-    ]);
-    const [recentSearches, setRecentSearches] = useState([]);
+    const [searchData, setSearchData] = useState([]);
+    console.log(searchData)
+    const { flightData } = useSelector((state) => state.FlightDestinationReducer)
+    const options = flightData.map((data) => data.source.city);
+
+    // const [recentSearches, setRecentSearches] = useState(new Set());
+    // console.log(recentSearches)
 
     const handleHapus = () => {
-        setRecentSearches([]);
+        setSearchData([]);
     }
 
     const handleSearch = (e) => {
         const searchTerm = e.target.value.toLowerCase();
-        const filtered = options.filter(option => option.toLowerCase().includes(searchTerm));
-        setRecentSearches(filtered);
         setSearchValue(searchTerm);
+        const filtered = options.filter(option => {
+            if (option.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return true
+            }
+            return false
+        });
+        console.log(filtered)
+        setSearchData(filtered)
     };
 
     const handleSelection = (selectedValue) => {
@@ -35,14 +42,9 @@ function ModalFlightFrom({ value, onSelect }) {
         setVisible(false);
     };
 
-    const handleRemoveSearch = (search) => {
-        const updatedSearches = recentSearches.filter(item => item !== search);
-        setRecentSearches(updatedSearches);
-    };
-
     return (
         <>
-            <div className="pl-4 font-bold cursor-pointer" onClick={() => setVisible(true)}>
+            <div className="font-bold text-xs md:text-base cursor-pointer sm:ml-3 lg:ml-4" onClick={() => setVisible(true)}>
                 {value}
             </div>
 
@@ -75,7 +77,7 @@ function ModalFlightFrom({ value, onSelect }) {
                                 </span>
                             </p>
                         </div>
-                        {recentSearches.map((search, index) => (
+                        {searchData.map((search, index) => (
                             <React.Fragment key={index}>
                                 <div className="flex items-center">
                                     <p
@@ -88,7 +90,7 @@ function ModalFlightFrom({ value, onSelect }) {
                                         <Image
                                             src={icon_x}
                                             alt="Remove"
-                                            onClick={() => handleRemoveSearch(search)}
+                                            onClick={handleHapus}
                                             className="cursor-pointer"
                                         />
                                     </div>

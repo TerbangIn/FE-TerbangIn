@@ -58,7 +58,7 @@ function ModalPassengers() {
 
     return (
         <>
-            <div className="pl-8 font-bold" onClick={() => setVisible(true)} style={{ cursor: "pointer" }}>
+           <div className="font-bold text-xs md:text-base pl-2 md:pl-8" onClick={() => setVisible(true)} style={{ cursor: "pointer" }}>
             {counterAmount}
             </div>
 
@@ -125,8 +125,6 @@ function ModalPassengers() {
             </div>
 
         </>
-
-
     )
 
 }

@@ -2,7 +2,6 @@
 const initialState = { counterAdult: 0, counterChild: 0, counterBaby: 0, counterAmount: 2 + ' Penumpang', showCounter: true, showCounterAdult: true, showCounterChild: true, showCounterBaby: true }
 
 const passengersReducer = (state = initialState, action) => {
-    // action.payload = biasa request.body ke form
     if (action.type === 'plusAdult') {
         return {
             ...state,
