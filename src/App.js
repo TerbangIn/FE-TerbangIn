@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Chekout from './pages/Payment/chekout';
+import SeatCustomer from './pages/Payment/seat';
+// import Modal from './pages/Payment/modal';
+import Modal from './pages/Payment/modal';
+import Navbar from './pages/Payment/navbar';
+import Payment from './pages/Payment/payment';
+import Accordion from './pages/Payment/accordion';
+import Success from './pages/Payment/payment-success';
+import { BrowserRouter as Router, Route, BrowserRouter, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/checkout' exact Component={Chekout}/>
+          <Route path='/payment' exact Component={Payment}/>
+          <Route path='/payment-success' exact Component={Success}/>
+        </Routes>
+      </BrowserRouter>
+      {/* <Payment/> */}
+      {/* <Navbar/> */}
+      {/* <Chekout/> */}
+      {/* <Accordion/> */}
+      {/* <Success/> */}
     </div>
   );
 }
