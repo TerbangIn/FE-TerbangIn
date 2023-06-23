@@ -9,20 +9,19 @@ import Accordion from './pages/Payment/accordion';
 import Success from './pages/Payment/payment-success';
 import { BrowserRouter as Router, Route, BrowserRouter, Routes } from "react-router-dom";
 
-
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path='/' exact Component={Chekout}/>
+          <Route path='/checkout' exact Component={Chekout}/>
           <Route path='/payment' exact Component={Payment}/>
           <Route path='/payment-success' exact Component={Success}/>
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
       {/* <Payment/> */}
       {/* <Navbar/> */}
-      <Chekout/>
+      {/* <Chekout/> */}
       {/* <Accordion/> */}
       {/* <Success/> */}
     </div>

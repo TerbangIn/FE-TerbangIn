@@ -10,13 +10,15 @@ export default function Modal() {
           >
             <div className="relative mx-auto">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col mt-[174px] bg-[#FF0000] outline-none focus:outline-none">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col bg-[#FF0000] outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between rounded-t ml-[278px] mt-1">
-                  <h3 className="justify-center items-center text-lg text-white font-semibold">
-                    Anda harus login terlebih dahulu!
-                  </h3>
-                  <div className="border-2 border-white rounded-full w-[29px] h-[29px] mr-[22px]">
+                <div className="flex items-start justify-center rounded-t mt-1">
+                  <div className="mr-[277px] ml-[287px]">
+                    <h3 className="text-lg text-white font-semibold">
+                      Anda harus login terlebih dahulu!
+                    </h3>
+                  </div>
+                  <div className="border-2 border-white rounded-full w-[29px] h-[29px] ">
                     <button
                       className="ml-auto  bg-transparent border-0 text-white float-right text-md leading-none font-semibold outline-none focus:outline-none"
                       onClick={() => setShowModal(false)}

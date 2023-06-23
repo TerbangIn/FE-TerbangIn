@@ -5,16 +5,38 @@ import Navbar from "./navbar";
 
 
 
-function Payment (){
-    return(
+function Payment() {
+    return (
         <>
-            <div>
-                <Navbar/>
-            </div>
-            <div className="flex flex-row">s
+            <header className="border-none shadow-md ">
+                <Navbar />
+                <div className="flex flex-row space-x-2 ml-[260px] mt-[47px]">
+                    <p className="text-xl font-bold">Isi Data Diri</p>
+                    <p className="text-xl">&gt;</p>
+                    <p className="text-xl font-bold" >Bayar</p>
+                    <p className="text-xl">&gt;</p>
+                    <p className="text-xl">Selesai</p>
+                </div>
+                <div
+                    className=" w-[936px] h-[50px] mx-auto "
+                >
+                    <div className="relative mx-auto">
+                        {/*content*/}
+                        <div className="border-0 rounded-lg shadow-lg relative flex flex-col bg-[#FF0000] outline-none focus:outline-none">
+                            {/*header*/}
+                            <div className="flex items-start justify-center rounded-t mt-1">
+                                <h1 className="justify-center items-center text-lg text-white font-semibold">
+                                    Selesaikan Pembayaran sampai 10 maret 2023 12:00
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div className="flex flex-row mt-3">s
                 <div>
                     <h1 className="text-1xl ml-[308px] font-bold mb-4">Isi Data Pembayaran</h1>
-                    <Accordion/>
+                    <Accordion />
                 </div>
                 <div>
                     <div className="ml-11">
@@ -83,7 +105,7 @@ function Payment (){
                     </div>
                     <div className="ml-7 flex flex-row">
                         <h1 className="font-bold text-base w-48">Total</h1>
-                        <h1 className="text-purple-900 font-bold  ml-2.5 text-lg">IDR 9.850.000</h1>
+                        <h1 className="text-purple-900 font-bold  ml=[10px] text-lg">IDR 9.850.000</h1>
                     </div>
                 </div>
             </div>
