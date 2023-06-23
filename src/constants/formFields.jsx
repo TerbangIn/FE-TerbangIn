@@ -18,7 +18,7 @@ const loginFields = [
         type: "password",
         autoComplete: "current-password",
         isRequired: true,
-        placeholder: "Password"
+        placeholder: "Masukkan Password"
     }
 ]
 
@@ -51,10 +51,10 @@ const signupFields = [
         type: "telepon",
         autoComplete: "telepon",
         isRequired: true,
-        placeholder: "+62"
+        placeholder: "+62 "
     },
     {
-        labelText: "Password",
+        labelText: "Buat Password",
         labelFor: "password",
         id: "password",
         name: "password",

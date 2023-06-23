@@ -39,7 +39,7 @@ function Signup() {
     }
   };
 
-  //handle Signup API Integration here
+  //handle Register API Integration here
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
@@ -72,7 +72,6 @@ function Signup() {
           })
         }
       ).catch(
-
         function (error) {
           console.log(error);
           toast.error(`${error.response.data.message}`, {
@@ -89,39 +88,13 @@ function Signup() {
       )
 
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
-    // window.location.href = "/otp";
-    //   e.preventDefault();
-    //   // console.log(signupState)
-    //   // createAccount()
-
-    //   // Login action
-    //   // memasukkan state ke dalam request
-    //   const request ={
-    //     first_name: username,
-    //     email:email,
-    //     password:password,
-    //     phone_number:telepon
-    // };
-    // // // memanggil fungsi login dari auth service
-    //   authService
-    //   .register(request)
-    //   .then((resp) => {
-    // //     console.log("resp", resp);
-    //     const response = resp.data;
-    //     storageService.setToken(resp.data.token);
-    //     // dispatch(setUser(resp.data));
-    //     if(response){
-    //         alert('Berhasil register dengan username : '+response.data.first_name);
-    // //         // console.log(response)
-    //     }
-    //   }).catch((error) => alert(error.response.data.message));
-
   }
 
   return (
-    <div className="">
+    <form className="mt-8 space-y-6 w-screen px-20  md:px-0 md:w-full " onSubmit={handleSubmit}>
+    <div className="-space-y-px">
       {
         fields.map(field =>
           <Input
@@ -151,8 +124,9 @@ function Signup() {
         pauseOnHover
         theme="light"
       />
+      </div>
       <FormAction handleSubmit={handleSubmit} text="Daftar" />
-    </div>
+    </form>
   )
 }
 

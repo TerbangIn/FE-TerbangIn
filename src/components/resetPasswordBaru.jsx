@@ -1,13 +1,11 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { resetPasswordBaruFields } from "../constants/formFields";
-import FormAction from "./formAction";
-import axios from "axios"
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-// import { authService, storageService } from "../services";
-import { useNavigate, useLocation } from 'react-router-dom';
-
+import FormAction from "./formAction";
+import axios from "axios"
 import Input from "./input";
 
 const fields = resetPasswordBaruFields;
@@ -28,7 +26,6 @@ function ResetPasswordBaru() {
         setOtp(location?.state?.otp)
         console.log(location?.state)
         console.log(passwordBaru);
-        // console.log(hideEmail(emailHidden))
     }, [emailHidden]);
 
     const handleChange = (e) => {
@@ -69,11 +66,8 @@ function ResetPasswordBaru() {
                     setTimeout(() => {
                         navigate("/")
                     }, 3000);
-                    
-                    
                 }
             ).catch(
-
                 function (err) {
                     console.log(err);
                     toast.error(`${err.response.data.message}`, {
@@ -88,59 +82,13 @@ function ResetPasswordBaru() {
                     })
                 }
             )
-
-            // console.log(passwordBaru)
-            // console.log(confirmPasswordBaru)
-
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
-    // const handleSubmit = async (e) => {
-
-    //     // window.location.href = "/reset-password-baru";
-    //     e.preventDefault();
-    //     try {
-    //         navigate("/otp-reset-password", {
-    //             state: email
-    //         })
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    // const handleSubmit = (e) => {
-    //     window.location.href = "/";
-    //     e.preventDefault();
-    //     // console.log({username,password});
-    //     const request = {
-    //         passwordBaru: passwordBaru,
-    //         confirmPasswordBaru: confirmPasswordBaru,
-    //     };
-
-    // authService
-    //   .login(request)
-    //   .then((resp) => {
-    // console.log("resp", resp);
-    // const response = resp.data;
-    // storageService.setToken(resp.data.token);
-    // dispatch(setUser(resp.data));
-    // console.log(response)
-
-    // if(response){
-    // if(response.status === "failed"){
-    //     alert(response.message);
-    // }else{
-    // alert(response.status);
-    // }
-    // console.log(response.status)
-    // }
-
-    //   }).catch((error) => alert(error.response.data.message));
-    // authenticateUser();
-    // }
 
     return (
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6 w-screen px-20  md:px-0 md:w-full " onSubmit={handleSubmit}>
             <div className="-space-y-px">
                 {
                     fields.map(field =>
@@ -176,4 +124,4 @@ function ResetPasswordBaru() {
     )
 }
 
-export default ResetPasswordBaru
+export default ResetPasswordBaru;

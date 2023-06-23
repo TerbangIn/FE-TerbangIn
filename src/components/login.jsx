@@ -1,13 +1,12 @@
-import { useEffect } from 'react';
 import React, { useState } from 'react';
-import axios from "axios"
+import { useEffect } from 'react';
 import { loginFields } from "../constants/formFields";
-import FormAction from "./formAction";
-// import { authService, storageService } from "../services";
-import Input from "./input";
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import axios from "axios"
 import Cookies from 'universal-cookie';
+import FormAction from "./formAction";
+import Input from "./input";
 
 const fields = loginFields;
 let fieldsState = {};
@@ -34,7 +33,6 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            //   setLoading(true)
             const response = await axios.post(
                 "https://be-tiketku-production.up.railway.app/api/v1/user/login",
                 {
@@ -46,7 +44,8 @@ const Login = () => {
                     const cookies = new Cookies()
                     const token = res.data.data.token
                     cookies.set("token", token, { path: "/" })
-                    toast.success(`${res.data.message}, redirect in 3s...`, {
+                    // toast.success(`${res.data.message}, redirect in 3s...`, {
+                    toast.success('Login Success, redirect in 3s...', {
                         position: "bottom-center",
                         autoClose: 2000,
                         hideProgressBar: true,
@@ -71,95 +70,14 @@ const Login = () => {
                     })
                 }
             )
-            console.log(username, password);
-            //   console.log(response);
-            //   if (response.status == 200) {
-            //     setCookie("accessToken", response.data.accessToken, {
-            //       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 10),
-            //     })
-            //     toast.success("login success, redirect in 3s...", {
-            //       position: "bottom-center",
-            //       autoClose: 2000,
-            //       hideProgressBar: true,
-            //       closeOnClick: true,
-            //       pauseOnHover: true,
-            //       draggable: true,
-            //       progress: undefined,
-            //       theme: "colored",
-            //     })
-            //     setTimeout(() => {
-            //     //   router.push("/beranda")
-            //     }, 3000)
-            //   }
-            //   setLoading(false)
+            // console.log(username, password);
         } catch (error) {
-            //   setLoading(false)
-            //   setErrors(error.response.data.errors)
-            //   if (error.response.status == 403) {
-            //     toast.error(`${error.response.data.message}, redirect in 3s...`, {
-            //       position: "bottom-center",
-            //       autoClose: 2000,
-            //       hideProgressBar: true,
-            //       closeOnClick: true,
-            //       pauseOnHover: true,
-            //       draggable: true,
-            //       progress: undefined,
-            //       theme: "colored",
-            //     })
-            //     await axios.post(
-            //       "https://be-tiketku-production.up.railway.app/api/v1/user",
-            //       {
-            //         username: loginState.username,
-            //       }
-            //     )
-            //     setTimeout(() => {
-            //     //   router.push(`/otp-register?email=${form.email}`)
-            //     }, 3000)
-            //   }
+
         }
     }
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    // // console.log({username,password});
-    // const request = {
-    //     email: username,
-    //     password: password,
-    //   };
-
-    //   authService
-    //   .login(request)
-    //   .then((resp) => {
-    //     // console.log("resp", resp);
-    //     const response = resp.data;
-    //     storageService.setToken(resp.data.token);
-    //     // dispatch(setUser(resp.data));
-    //     console.log(response)
-
-    //     if(response){
-    //         // if(response.status === "failed"){
-    //         //     alert(response.message);
-    //         // }else{
-    //         alert(response.status);
-    //         // }
-    //         // console.log(response.status)
-    //     }
-
-    //   }).catch((error) => alert(error.response.data.message));
-    //     // authenticateUser();
-    // }
-
-
-
-    // console.log(username);
-
-    // useEffect(() => {
-    //     console.log(username);
-
-    // }, [username,password])
-
     return (
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6 w-screen px-20  md:px-0 md:w-full " onSubmit={handleSubmit}>
             <div className="-space-y-px">
                 {
                     fields.map(field =>
@@ -196,4 +114,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;

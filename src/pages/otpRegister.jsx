@@ -23,18 +23,15 @@ export default function OTPRegister() {
   const [emailHidden, setEmailHidden] = useState()
   const location = useLocation()
   const navigate = useNavigate()
-  useEffect(() => {
-    setEmailHidden(location?.state)
-    console.log(emailHidden)
-    console.log(hideEmail(emailHidden))
-  }, [emailHidden]);
 
   let hideEmail = function (email) {
-    try {
-      let email = "*********@gmail.com"
-      return email
-    } catch (error) {
-      return email
+    if (emailHidden != null) {
+      return email.replace(/(.{1})(.*)(?=@)/,
+        function (gp1, gp2, gp3) {
+          for (let i = 0; i < gp3.length; i++) {
+            gp2 += "*";
+          } return gp2;
+        });
     }
   };
 
@@ -91,7 +88,34 @@ export default function OTPRegister() {
     })
   }
 
+  // useEffect(() => {
+  //   setEmailHidden(location?.state)
+  //   console.log(emailHidden)
+  //   console.log(hideEmail(emailHidden))
+  // }, [emailHidden]);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (seconds > 0) {
+  //       setSeconds(seconds - 1);
+  //     }
+  //     if (seconds === 0) {
+  //       clearInterval(interval);
+  //     }
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [seconds]);
+
+  const backButton = () => {
+    navigate('/register')
+  }
   useEffect(() => {
+    if (location.state === null) {
+      navigate('/register')
+    }
+    setEmailHidden(location?.state)
     const interval = setInterval(() => {
       if (seconds > 0) {
         setSeconds(seconds - 1);
@@ -103,20 +127,20 @@ export default function OTPRegister() {
     return () => {
       clearInterval(interval);
     };
-  }, [seconds]);
+  }, [seconds, emailHidden, location, navigate]);
 
   return (
     <div className='w-screen'>
       <div className='flex flex-col'>
         <div className="">
-          <Menubar start={start} />
+          <Menubar start={start} menuIcon={false} />
         </div>
         <div className='mt-6 mb-16 flex flex-col items-center justify-center'>
-          <div className='text-left w-2/4 gap-10 flex items-center'>
-            <Button type='button' className="" text label="">
+          <div className='text-left w-3/4 md:w-2/4 gap-10 flex items-center'>
+            <Button type='button' className="" text label="" onClick={() => backButton()}>
               <i className='pi pi-arrow-left font-extrabold text-black' style={{ fontSize: '1.4rem' }}></i>
             </Button>
-            <label className='text-3xl  font-extrabold text-gray-900'>Masukkan OTP</label>
+            <label className='text-3xl font-extrabold text-gray-900'>Masukkan OTP</label>
           </div>
           <div className='mt-10'>
             <h2>Ketik 6 digit kode yang dikirimkan ke <b>{hideEmail(emailHidden)}</b></h2>
@@ -124,13 +148,13 @@ export default function OTPRegister() {
             <PinInput
               length={6}
               initialValue=""
-              secret
-              secretDelay={100}
+              secret={false}
+              // secretDelay={100}
               onChange={(value, index) => { setOtp(value) }}
               type="numeric"
               inputMode="number"
               style={{ paddingTop: '44px', paddingBottom: '24px' }}
-              inputStyle={{ border: '1px solid #D0D0D0', borderRadius: '16px' }}
+              inputStyle={{ border: '1px solid #D0D0D0', borderRadius: '16px' , margin: '0 7px' }}
               // inputFocusStyle={{borderColor: 'blue'}}
               onComplete={(value, index) => { }}
               autoSelect={true}
