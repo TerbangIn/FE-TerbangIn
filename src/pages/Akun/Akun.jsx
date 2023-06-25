@@ -98,8 +98,6 @@ function Akun() {
           </Panel>
         </Card>
       );
-    } else if (pick === "pengaturan") {
-      return aaaaa;
     } else if (pick === "keluar") {
       return logout;
     }
@@ -108,7 +106,7 @@ function Akun() {
   const handleSubmit = async () => {
     // try{
     await axios.put(
-      "https://be-tiketku-production.up.railway.app/api/v1/user/11",
+      "https://be-tiketku-production.up.railway.app/api/v1/user/2",
       {
         first_name: form.first_name,
         phone_number: form.phone_number,
@@ -192,10 +190,9 @@ function Akun() {
                   </Link>
                   <Divider className="w-10"/>
                 </div>
-                <div className="container w-10">
                 <div className="col-6 p-0 my-auto">
-                  {/* <Card title="Ubah Data Profil" className="border shadow-none"> */}
-                  <Panel header="Data Profil">
+                  <Card title="Ubah Data Profil" className="border shadow-none">
+                  <Panel header="Data Profil" className="pb-4">
                     <div className="text-sm font-bold justify-items-end text-binar-darkPurple">
                       Nama Lengkap
                     </div>
@@ -241,57 +238,11 @@ function Akun() {
                   </Panel>
                   <Button
                     onClick={handleSubmit}
-                    className="bg-second-purple hover:bg-main-purple px-8 py-1.5 rounded-lg text-white"
+                    className="bg-binar-purple hover:bg-main-purple px-8 rounded-lg text-white"
                   >
                     Simpan
                   </Button>
-                  {/* </Card> */}
-                  {/* <div className="pt-3 flex flex-col md:max-w-md">
-                                            <div className="rounded-t-lg bg-third-purple py-2 pl-4 font-medium text-white mb-3">
-                                                Data Diri
-                                            </div>
-                                            <div className="pl-4 pt-2 pb-1 text-second-purple text-sm font-bold">
-                                                Nama Lengkap
-                                            </div>
-                                            <InputText
-                                                onChange={handleChange}
-                                                className="ml-4 pl-4 border border-gray-300 rounded-md py-2 focus:border-main-purple outline-none"
-                                                type="text"
-                                                id="first_name"
-                                                value={form.first_name}
-                                                name="first_name"
-                                            />
-                                            <div className="pl-4 pt-2 pb-1 text-second-purple text-sm font-bold">
-                                                Nomor Telepon
-                                            </div>
-                                            <InputText
-                                                onChange={handleChange}
-                                                className="ml-4 pl-4 border border-gray-300 rounded-md py-2 focus:border-main-purple outline-none"
-                                                type="text"
-                                                placeholder="+6213486777"
-                                                id="phone_number"
-                                                value={form.phone_number}
-                                                name="phone_number"
-                                            />
-                                            <div className="pl-4 pt-2 pb-1 text-second-purple text-sm font-bold">
-                                                Email
-                                            </div>
-                                            <InputText
-                                                onChange={handleChange}
-                                                className="ml-4 pl-4 border border-gray-300 rounded-md py-2 focus:border-main-purple outline-none"
-                                                type="text"
-                                                placeholder="JohnDoe@gmail.com"
-                                                id="email"
-                                                value={form.email}
-                                                name="email"
-                                            />
-                                            <div className="flex self-center pt-7">
-                                                <Button onClick={handleSubmit} className="bg-second-purple hover:bg-main-purple px-8 py-1.5 rounded-lg text-white">
-                                                    Simpan
-                                                </Button>
-                                            </div>
-                                        </div> */}
-                </div>
+                </Card>
                 </div>
               </div>
             </div>

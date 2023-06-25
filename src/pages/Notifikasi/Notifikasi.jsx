@@ -54,7 +54,7 @@ function Notifikasi() {
                                         <i className="pi pi-circle-fill" style={{ color: 'green' }}></i>
                                     </div>
                                 </div>
-                                <div className="text-base font-normal text-900">Dapatkan Bla"""""""""""""""""""""""""""""""</div>
+                                <div className="text-base font-normal text-900">Dapatkan Potongan 50%</div>
                                 <div className="text-base font-normal text-700">Syarat dan ketentuan berlaku</div>
                             </div>
                         </div>

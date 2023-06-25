@@ -22,7 +22,7 @@ function Navbar() {
 
     const logoItem = 
                 <div to="/" className="ms-24">
-                    <Image src={Logo} alt="Logo" width="100"/>
+                    <Image src={Logo} alt="Logo" width="200"/>
                 </div>
 
     const buttonItem = 
