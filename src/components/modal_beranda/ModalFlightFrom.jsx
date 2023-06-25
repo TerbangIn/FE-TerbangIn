@@ -12,27 +12,22 @@ function ModalFlightFrom({ value, onSelect }) {
     const [visible, setVisible] = useState(false);
     const [searchValue, setSearchValue] = useState("");
     const [searchData, setSearchData] = useState([]);
-    console.log(searchData)
     const { flightData } = useSelector((state) => state.FlightDestinationReducer)
     const options = flightData.map((data) => data.source.city);
 
-    // const [recentSearches, setRecentSearches] = useState(new Set());
-    // console.log(recentSearches)
-
-    const handleHapus = () => {
-        setSearchData([]);
-    }
-
+   
     const handleSearch = (e) => {
         const searchTerm = e.target.value.toLowerCase();
         setSearchValue(searchTerm);
+        console.log(searchTerm)
         const filtered = options.filter(option => {
             if (option.toLowerCase().includes(searchTerm.toLowerCase())) {
+                console.log(option)
                 return true
+                
             }
             return false
         });
-        console.log(filtered)
         setSearchData(filtered)
     };
 
@@ -41,6 +36,10 @@ function ModalFlightFrom({ value, onSelect }) {
         setSearchValue("");
         setVisible(false);
     };
+
+    const handleHapus = () => {
+        setSearchData([]);
+    }
 
     return (
         <>
@@ -57,6 +56,7 @@ function ModalFlightFrom({ value, onSelect }) {
                                 placeholder="Search"
                                 value={searchValue}
                                 onChange={handleSearch}
+                                className="w-96"
                             />
                         </span>
                     }
@@ -86,7 +86,7 @@ function ModalFlightFrom({ value, onSelect }) {
                                     >
                                         {search}
                                     </p>
-                                    <div className="flex ml-auto mr-10">
+                                    <div className="flex ml-auto mr-6">
                                         <Image
                                             src={icon_x}
                                             alt="Remove"

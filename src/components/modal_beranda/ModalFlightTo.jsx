@@ -41,7 +41,7 @@ function ModalFlightTo({ value, onSelect }) {
 
     return (
         <>
-            <div className=" cursor-pointer font-bold text-xs md:text-base sm:ml-2 lg:ml-4" onClick={() => setVisible(true)}>
+            <div className=" cursor-pointer font-bold text-xs md:text-base sm:ml-2 lg:ml-7" onClick={() => setVisible(true)}>
                 {value}
             </div>
 
@@ -54,6 +54,7 @@ function ModalFlightTo({ value, onSelect }) {
                                 placeholder="Search"
                                 value={searchValue}
                                 onChange={handleSearch}
+                                className="w-96"
                             />
                         </span>
                     }
@@ -83,7 +84,7 @@ function ModalFlightTo({ value, onSelect }) {
                                     >
                                         {search}
                                     </p>
-                                    <div className="flex ml-auto mr-10">
+                                    <div className="flex ml-auto mr-6">
                                         <Image
                                             src={icon_x}
                                             alt="Remove"

@@ -25,8 +25,8 @@ const JadwalPenerbangan = (onFilterData) => {
     const [selectedDate1, setSelectedDate1] = useState(null);
     const [selectedDate2, setSelectedDate2] = useState(null);
     const [checked, setChecked] = useState(false);
-    const [from, setFrom] = useState("Istanbul");
-    const [to, setTo] = useState("China");
+    const [from, setFrom] = useState("Duesseldorf");
+    const [to, setTo] = useState("Brazil");
     const [matchingFlights, setMatchingFlights] = useState([]);
 
 
@@ -49,20 +49,19 @@ const JadwalPenerbangan = (onFilterData) => {
 
     const buttonHandler = () => {
         const filteredFlights = flightData.filter((flight) => {
-            // Ubah kondisi sesuai dengan kriteria pencarian pengguna
             return (
-              flight.source.city.toLowerCase() === from.toLowerCase() &&
-              flight.destination.country.toLowerCase() === to.toLowerCase()
+                flight.source.city.toLowerCase() === from.toLowerCase() &&
+                flight.destination.country.toLowerCase() === to.toLowerCase()
             );
-          });
-      
-          setMatchingFlights(filteredFlights);
-          if (filteredFlights.length > 0) {
+        });
+
+        setMatchingFlights(filteredFlights);
+        if (filteredFlights.length > 0) {
             alert("Ada data penerbangan yang sesuai!");
         } else {
             alert("Tidak ada data penerbangan yang sesuai!");
         }
-      
+
     }
 
     const handleFromChange = (value) => {
@@ -98,7 +97,7 @@ const JadwalPenerbangan = (onFilterData) => {
 
     return (
         <div className="flex justify-center">
-            <div className="relative flex flex-col border-2 rounded-lg shadow-lg bg-white -mt-4  sm:-mt-8 md:-mt-6 lg:-mt-12 lg:ml-10">
+            <div className="relative flex flex-col border-2 rounded-lg shadow-lg bg-white -mt-4 sm:-mt-8 md:-mt-6 md:mr-10 lg:-mt-12 lg:ml-10">
                 <div className="sm:ml-3 sm:mt-2 lg:ml-6">
                     <h1 className="text-base font-bold pb-3">Pilih Jadwal Penerbangan spesial di<span className=" text-primary2"> TerbangIn!</span></h1>
                 </div>
@@ -130,7 +129,7 @@ const JadwalPenerbangan = (onFilterData) => {
                     <div className="ml-16 mr-2 sm:ml-20 sm:mr-8 lg:ml-20 lg:mr-12">
                         <Image src={garis1} alt="garis1" />
                     </div>
-                    <div className="ml-16 mr-2 sm:ml-20 sm:mr-4 lg:ml-20">
+                    <div className="ml-16 mr-2 sm:ml-20 sm:mr-4 lg:ml-24">
                         <Image src={garis1} alt="garis1" />
                     </div>
                 </div>
@@ -149,7 +148,7 @@ const JadwalPenerbangan = (onFilterData) => {
                         <p className="text-primary1 text-xs md:text-base ml-6 sm:ml-20">Seat Class</p>
                     </div>
                 </div>
-                <div className="grid grid-cols-2 gap-1 mb-3 sm:ml-3 sm:mb-1 lg:ml-6">
+                <div className="grid grid-cols-2 gap-1 mb-2 sm:ml-3 sm:mb-1 lg:ml-6">
                     <div className="flex items-center lg:mt-2">
                         <Image src={icon_date} alt="icon_date" className="w-4 md:w-6" />
                         <p className="text-primary1 text-xs md:text-base ml-1 sm:ml-2">Date</p>

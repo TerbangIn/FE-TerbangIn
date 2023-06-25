@@ -28,7 +28,7 @@ function Destinasi() {
 
     return (
         <div className="flex justify-center">
-            <div className="container ">
+            <div className="container ml-48">
                 <div className="flex flex-row pt-10">
                     <p className="font-sans1 font-bold text-base">Destinasi Favorit</p>
                 </div>
