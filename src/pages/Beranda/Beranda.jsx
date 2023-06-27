@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import JadwalPenerbangan from './Jadwal';
@@ -91,17 +90,6 @@ function Beranda() {
       <Banner />
       <JadwalPenerbangan />
       <Destinasi data={flightData}/>
-=======
-import React from 'react'
-
-function Beranda() {
-  return (
-    <>
-      <Navbar/>
-      <Banner/>
-      <Jadwal/>
-      <Category/>
->>>>>>> 3a48c4261870ca31e22dbdbe3b6e81b12813c704
     </>
   )
 }
